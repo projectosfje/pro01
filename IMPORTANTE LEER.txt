@@ -1,0 +1,16 @@
+Bon día,
+
+En aquest arxiu s'explica on es troba cadascuna de les coses que hem modificat.
+
+
+Arxiu css:
+	...\media11.mediazs.com\theme\zooplus\zooplus.es\css\web-styles.css
+	LA PART DE CODI QUE NOSALTRES HEM GENERAT, COMENÇA A LA LINEA 1460 DEL ARXIU web-styles.css
+
+Pàgina dels anuncis:
+	...\www.zooplus.es\perdidos.php
+	LA PART DE CODI QUE NOSALTRES HEM GENERAT, COMENÇA A LA LÍNEA 1600 DEL ARXIU perdidos.php
+
+Les imatges dels animals perduts estan a:
+
+	...\img\*

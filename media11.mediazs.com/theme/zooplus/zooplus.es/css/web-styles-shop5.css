@@ -1,0 +1,3885 @@
+/* ********************************************************************
+ * CSS Styles / Styleguide Structure for zooplus Shops
+ *
+ * PLEASE MAKE SURE YOU UNDERSTAND THE STRUCTURE RULES BEFORE EDITING
+ * --> http://wiki.web.zooplus.de/display/it/Corporate+Styleguide
+ * --> https://github.com/necolas/idiomatic-css
+ *
+ * this file is used in every zooplus page until a splitting mechanism & dependency management
+ * is implemented, so that pages & features can require some or all style modules defined
+ *
+ * The Styles in this file require a fixed structure to
+ * - enables machine parsing, tidying & concatenation
+ * - maintainance
+ * - modularisation by Blocks
+ * ********************************************************************/
+
+/*  TOC **********************
+    1. Base Styles
+        1.0. normalize / reset
+        1.1. Page Layout (3col)
+        1.2. Typography
+            1.2.1. Headlines
+            1.2.2. Emphasis
+            1.2.3. Graphic Elements
+        1.3. Links
+            1.3.1. Basic Links
+            1.3.2. Special Purpose Links
+        1.4. Buttons
+            1.4.1. Basic Buttons
+            1.4.2. Buttons with Graphics
+        1.5. Form Elements
+            1.5.1. Basic Elements
+            1.5.2. Advanced Form Element Styling (e.g. CSS3 properties)
+            1.5.3. Element Structures (e.g. label + input + button)
+        1.6. Supportive Structures
+            1.6.1. Lists
+                1.6.1.1. Basic list types
+                1.6.1.2. Navigation Lists
+                1.6.1.3. Odd Even
+                1.6.1.4. Special Lists
+            1.6.2. Boxes
+                1.6.2.1. Boxtypes
+                1.6.2.2. Special Boxes
+                1.6.2.3. Minicart Popup
+                1.6.2.4. Info Popup
+            1.6.3. Data Tables
+            1.6.4. Form (Forms, Fieldset, Legend)
+            1.6.5. Navigaton (e.g. Cancel + Submit)
+            1.6.6. Wrapper
+        1.7. Accessibility Helpers
+        1.8. Utility Classes (hide, show, js ...)
+    2. Modules
+        2.1. Common Features (widely used / reused)
+            2.1.1. Header
+                2.1.1.1. Navigation
+                2.1.1.2. Flyout
+                2.1.1.3. Tools
+            2.1.2. Footer
+            2.1.3. Product Module (e.g. in Listpages, Search)
+                2.1.3.1. Head
+                2.1.3.2. Basic (Description, IMG)
+                2.1.3.3. Rating
+                2.1.3.4. Add to Cart Section
+                2.1.3.5. Price Styling
+                2.1.3.6. Variant Lists
+                2.1.3.7. Product Lists
+                2.1.3.8. Gridview
+            2.1.4. Content Popup
+            2.1.5. Coupon Container / New Customer Coupon
+            2.1.6. Messages (Info, Error, Success)
+            2.1.7. Search Box Widget [deprecated]
+            2.1.8. Breadcrumbs
+        2.2. Feature Modules
+            2.2.1. Savingsplan
+                2.2.1.1. Savingsplanbox
+                2.2.1.2. Savingsplan Product
+                2.2.1.3. Account Page Styles
+            2.2.2. Savingsbox
+            2.2.3. Shipping cost table
+            2.2.4. Product Mediacenter
+                2.2.4.1. Thumbnails
+            2.2.5. Homepage Main Rotation Banner
+            2.2.6. Special Offers Box
+            2.2.7. Last Minute Offer Box
+            2.2.8. Checkout Steps (stepCounter)
+            2.2.9. Checkout Cart Table
+            2.2.10. My Zooplus
+                2.2.10.1 Last Order
+                2.2.10.2 Newsletter
+                2.2.10.3 Pet of the day
+                2.2.10.4 Bonus Program
+                2.2.10.5 Savings Plan
+                2.2.10.6 Personal data
+                2.2.10.7 Savings Plan Banner
+            2.2.11. My Zooplus edit address
+            2.2.12. Product Reco.
+        2.3. Plugins
+            2.3.1. jQuery Zoom (Mediacenter)
+            2.3.2. exorbyte search
+            2.3.3. Hills Club
+            2.3.4. Eukanuba
+    3. Page specific styles
+        3.1. Catalog
+            3.1.1. Homepage
+            3.1.2. Product Category Page
+            3.1.3. Supplier Page
+            3.1.4. Product List Page
+            3.1.5. Product Detail Page
+            3.1.6. Special Offers Pages
+        3.2. Checkout
+            3.2.1. Login Page
+            3.2.2. Registration
+                3.2.2.1. Address
+                3.2.2.2. Account
+                3.2.2.3. Payment
+            3.2.3. Cart Overview
+            3.2.4. Cart Preview
+            3.2.5. Checkout Finish / Paymentrouter
+            3.2.6. Gift Voucher, Gift Coupon Configuration
+        3.3. Selfcare Area / Account
+        3.4. Content Pages
+        3.5. Fixed to top Adzone
+ */
+
+
+/* @import "./basic.less"
+ * Basic Styles
+ *
+ * Basic Reusable Component & Structure Styling
+ * e.g. Typography, Links, Buttons, Form Elements ...
+ *
+ * Styleguide 1.
+ */
+
+body, p{
+    color:#333;
+}
+
+/* @import "./basic/normalize.less"
+ * Reset Styles
+ *
+ * To handle all Browsers similar the reset or normalize css would apply default styling rules to elements
+ * So Paragraph and Headline margins are set to a common value across multiple browsers
+ *
+ * #[not parsed for styleguide]
+ * Styleguide 1.0.
+ */
+
+body, p{
+    font-family : Arial, Verdana, Helvetica, sans-serif;
+    font-weight : normal;
+    font-size : 12px;
+    text-decoration : none;
+    line-height : normal;
+}
+
+h1, h2, h3, h4, h5{
+    display: block;
+    position: relative;
+    text-decoration :none;
+    font-style:normal;
+    text-align:left;
+    margin:0;
+    padding:0;
+}
+
+/*
+Remove migrated for styleguides, but causing problems on catalog pages
+ul, li{
+    position: relative;
+}
+  */
+
+
+/* @import "./basic/layout.less"
+ /* Page Layout
+ *
+ * These styles set up the 3 column layout for all zooplus pages
+ * Header & Footer Styling & Grid Layout included
+ *
+ * #[not parsed for styleguide]
+ * Styleguide 1.1.
+ */
+body{
+    margin:3px 0 10px 0;
+    padding:0;
+
+    background-image:url(../image/legacy/q-s/shadow-1030.gif);
+    background-repeat:repeat-y;
+    background-position: center;
+}
+
+/* remove background image on small browser window to avoid graphical glitches */
+/* only works for modern browser doesn't work with IE 8 */
+@media screen and (max-width: 1030px){
+    body {
+        background-image:none !important;
+    }
+}
+
+/* The page-content */
+#main{
+    margin: 12px 0;
+    position: relative;
+}
+
+/* Container for centering the page */
+#page_margins {
+    width:1004px;
+    margin:0 auto;
+    background-color: transparent;
+}
+
+#page_margins:before,
+#page_margins:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+#page_margins:after {
+    clear: both;
+}
+
+#page{
+    text-align:left;
+}
+
+#navigation {
+    width:1004px;
+    margin: 0;
+    position: relative;
+    z-index: 100; /*fixes the header messages overlaying the navigation + Header Nav Flyout IE7/8 Fix*/
+}
+
+#header{
+    width:658px;
+    margin:0 173px 10px;
+    text-align:center;
+    padding:8px 0 0 0;
+}
+
+#left-col{
+    position: static !important;
+    float: left;
+    width:157px;
+    min-height: 300px;
+}
+
+.mzp #left-col{
+    font-size: 12px;
+    line-height: 2em;
+}
+.mzp #left-col a{
+    color: #3c7900;
+}
+.mzp #left-col a:active{
+    color: #ff8800;
+    font-weight: bold;
+}
+.mzp #left-col table{
+    margin-top: -10px;
+}
+.mzp #left-col .green-white-middle,
+.mzp #left-col .green-white-top,
+.mzp #left-col .green-white-bottom{
+    background-image: none;
+    width: auto;
+}
+.mzp #left-col h1{
+    color: #ff8800;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+.mzp .indented td:last-of-type{
+    padding-left: 10px;
+}
+
+#middle-col{
+    position: static !important;
+    width:658px;
+    float: left;
+    margin: 0 15px;
+}
+.mzp #middle-col table{
+    margin: 0;
+    width: 100%;
+}
+.mzp .full-green-white-middle,
+.mzp .full-green-green-middle{
+    margin: 0;
+}
+
+.login-page #left-col {
+    display: none;
+}
+
+.login-page #middle-col {
+    float: none;
+    margin: 20px auto 0 auto !important;
+
+}
+
+.mzp #left-col{
+    width:242px;
+}
+
+.mzp #middle-col{
+    width:747px;
+    margin: 0;
+    margin-left: 15px;
+}
+
+#right-col{
+    position: static !important;
+    width:157px;
+    float: left;
+}
+
+.logout__link{
+    font-weight: bold;
+}
+
+
+
+/* NEW FOOTER */
+.footer {
+    clear: both;
+    width: 1030px;
+    margin: 25px auto 0 auto !important;
+    padding-bottom: 12px;
+}
+
+.footer-inner {
+    min-height: 200px;
+    /* remove next two line to activate new footer layout */
+    width:658px;
+    margin: 0 auto;
+}
+
+.footer-inner .UVP, .footer-inner .UVP > a {
+    /*
+    check this line with new footer
+    color: #a4a4a4; */
+    font-size: 12px;
+    margin: 0 0 20px 0;
+}
+
+.footer-inner .currentdate {
+    color: #a4a4a4;
+    text-align: right;
+    float: right;
+    font-size: 10px;
+}
+
+.footer-inner .footercopyright {
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.footer-inner hr {
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    border: none;
+    background-color: #bbb;
+}
+
+.footer-inner .zone {
+    text-align: center;
+}
+
+.footer-inner * {
+    font-size: 11px;
+}
+
+.zone-wrapper {
+    margin-bottom: 10px;
+}
+
+
+.button__goUp__fixed {
+    position: fixed;
+    top: 90%;
+    right: 2%;
+    z-index: 100;
+    display:none;
+}
+@media screen and (min-width:1200px) {
+    .button__goUp__fixed {
+        display: block;
+    }
+}
+
+.button__goUp__fixed a.btn{
+    padding-bottom: .7em;
+    padding-left:.9em;
+    padding-right:.6em;
+    border-radius: .8em 0 0 .8em;
+}
+
+.button__goUp__fixed a.btn:hover,
+.button__goUp__fixed a.btn:focus{
+    padding: .2em .6em .7em .9em;
+}
+
+.button__goUp__fixed .icon-arw-up{
+    background-image: url(../image/arw-up.png);
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+
+/* @import "./basic/typography.less"
+ * Typography Styling
+ *
+ * Texts styling
+ *  - text in paragraphs
+ *  - text with images
+ *
+ * Styleguide 1.2.
+ */
+
+/* Headlines
+ *
+ * H1, H2, Page headlines
+ * Specific Margins & Paddings on Titles should be done Page or Feature specific heres just the place for general Headline Styling
+ *
+ * Styleguide 1.2.1.
+ */
+h1, h2, h3, h4{
+    font-weight: bold;
+}
+
+h1{
+    font-size:16px;
+    margin-bottom: 14px;
+    color :#f80;
+}
+
+h2{
+    font-size:16px;
+    margin-bottom: 5px;
+    color :#f80;
+}
+
+h3{
+    font-size:14px;
+    color:#666;
+    margin: 14px 0;
+}
+
+h4, h5, h6{
+    font-size:12px;
+    color:#333;
+    margin: 8px 0 4px;
+}
+
+h4 + p, h4 + ul{
+    margin-top:0;
+}
+
+/* Page-Title & Page-Subtitle
+ *
+ * to allow correct h1 --> hn Headline Structure the
+ * specific styling (color, size, margins) is done with this classes
+ * .pagetitle defines the Top Most Page title
+ * .pagesubtitle defines page section titles
+ */
+.pagetitle{
+    font-size:16px;
+    margin: 8px 0 14px;
+    color :#f80;
+    padding-bottom: 4px;
+    display:block;
+    border-bottom: 1px solid #bbb;
+}
+
+/* we assume nothing comes before the pagetitle - just in case add margin on top*/
+* + .pagetitle{
+    margin-top: 14px;
+}
+
+.pagesubtitle{
+    margin: 14px 0;
+    font-weight: bold;
+    font-size: 16px;
+    color:#999;
+}
+
+/* Emphasis
+ *
+ * Increase or reduce visibility of text elements
+ *
+ * Styleguide 1.2.2.
+ */
+.important{
+    color:red;
+    font-size:12px;
+}
+.highlight{
+    color: #f80;
+}
+.sidenote {
+    margin:0;
+    font-size: 10px;
+    opacity: 0.7;
+}
+.sidenote.mandatory {
+    text-align: center;
+}
+
+/* Graphic Elements
+ *
+ * Lines, Icons, glyphs or similar graphical text decoration or separation
+ *
+ * Styleguide 1.2.3.
+ */
+
+
+/* a horizontal line
+ *
+ * Markup:
+ * <div class="hr">
+ *    <hr />
+ * </div>
+ */
+.hr {
+    margin: 10px 0;
+    height: 1px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+.hr hr {
+    display: none;
+}
+
+
+
+/* @import "./basic/links.less"
+ * Link Styling
+ *
+ * Basic & Special Links styled
+ * - links
+ * - links with images
+ *
+ * Styleguide 1.3.
+ */
+
+/* Basic Links
+ *
+ * Links and their pseudo states (hover,active,focus...)
+ *
+ * Styleguide 1.3.1.
+ */
+a, a:link, a:visited,
+.link_highlight {
+    text-decoration :none;
+    color :#3C9700;
+}
+a:link:hover, a:visited:hover, a:hover,
+.link_highlight{
+    text-decoration :none;
+    color :#f80;
+}
+a:active{
+    text-decoration :none;
+    color :#fc3;
+}
+
+/* Special Purpose Links
+ *
+ * Links with images or other special links
+ *
+ * Styleguide 1.3.2.
+ */
+.follow1:after,.follow2:after,.follow3:after,.follow4:after,.follow5:after,.follow6, .follow7:after,.goto1:after,.lookhere:before{
+    background-image:url(../image/sprites/icon_sprite30f4.png?v=3);
+    background-repeat: no-repeat;
+    content:"";
+    display:inline-block;
+}
+.goto1:after{background-position:right 0;width: 9px; height: 7px;}
+.follow1:after{background-position: right -208px;width: 7px; height: 7px;}
+.follow2:after{background-position: right -77px;width: 7px; height: 7px;}
+.follow3:after{background-position: right -17px; width: 9px; height: 9px;}/*green right*/
+.follow4{background:url(../image/legacy/pfeil_7o.gif) no-repeat left; padding-left:11px;}
+.follow5:after{background-position: right -36px;width:6px;height:9px;}
+.follow7:after{background-position: right -495px;width:19px;height:16px; margin-left: 5px;}
+.lookhere:before{background-position: left -17px; width: 9px; height: 9px;}/*orange right left aligned*/
+
+.follow6{
+    background: url("../image/a-c/arrow_orange_3.gif") 100% 50% no-repeat transparent;
+    display: inline-block;
+    padding-right: 22px;
+}
+
+/* clickable text without any visual effect */
+.linkText{
+    color:#333;
+    font-weight: normal
+}
+
+
+/*        1.4. Buttons
+            1.4.1. Basic Buttons
+            1.4.2. Buttons with Graphics
+
+            */
+
+button.typ_3 {
+    height: auto !important;
+}
+
+.header-print {
+    float: right;
+}
+
+/* @import "./basic/formElements.less"
+ * Form Elements
+ *
+ * Basic Form Element Styling and structure to allow Form element group styling
+ * - INPUTs / LABELs
+ * - input + label etc.
+ *
+ * Styleguide 1.5.
+ */
+
+/* Basic Form Elements
+ *
+ * Styling for basic form elements
+ *
+ * Styleguide 1.5.1.
+ */
+input[type='text'], input[type='password'], input[type='email'], input[type='search'], select {
+    margin-bottom: 5px;
+    padding: 2px;
+    /*width: 100%;*/
+    display: inline-block;
+    border-radius: 2px;
+    -moz-border-radius: 2px; /* fixes FF bug when applying background-image to inputs - border grows weirdly :)  */
+    border: 1px inset #BBBBBB;
+    border-style: -moz-bg-inset;
+}
+
+/* Special Styling for Form Elements
+*
+* e.g. CSS3 placeholder styling, autofocus etc.
+*
+* Styleguide 1.5.2.
+*/
+input.placeholder {
+    color:#aaa;
+    font-style:italic;
+}
+input:-moz-placeholder{
+    color:#aaa;
+    font-style:italic;
+}
+input::-webkit-input-placeholder {
+    color:#aaa;
+    font-style:italic;
+}
+
+/* 2 column form (label - input)*/
+.twoColForm input {
+    width: 270px;
+    vertical-align: middle;
+}
+
+.twoColForm select {
+    width: 270px;
+    vertical-align: middle;
+}
+
+/* available width options for inputs/select*/
+
+.twoColForm .widthAuto {
+    width: auto;
+}
+
+.twoColForm .width40 {
+    width: 40px;
+}
+
+.twoColForm .width80 {
+    width: 80px;
+}
+
+.twoColForm .width85 {
+    width: 85px;
+}
+
+.twoColForm .width95 {
+    width: 95px;
+}
+
+.twoColForm .width100 {
+    width: 100px;
+}
+
+.twoColForm .width120 {
+    width: 120px;
+}
+
+.twoColForm .width150 {
+    width: 150px;
+}
+
+.twoColForm .width180 {
+    width: 180px;
+}
+
+.twoColForm .width200 {
+    width: 200px;
+}
+
+.twoColForm .width215 {
+    width: 215px;
+}
+/* --- */
+.twoColForm label.city {
+    display: inline;
+    float: none;
+    margin-left: 15px;
+}
+
+.twoColForm span.birthdate  select {
+    width: auto;
+}
+
+.twoColForm li.birthdate  select {
+    width: auto;
+}
+.twoColForm ul {
+    padding: 0px;
+    margin: 0px;
+}
+.twoColForm label {
+    margin-bottom: 0px;
+    display: inline-block;
+    width: 150px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+.twoColForm .hint {
+    margin-left: 157px;
+}
+.payment .twoColForm label {
+    width: 170px;
+}
+.payment .twoColForm .hint {
+    margin-left: 177px;
+}
+.twoColForm p.agree {
+    padding-left: 25%;
+    padding-top: 6px;
+
+}
+.twoColForm p.agree input {
+    display: inline-block;
+    width: auto;
+    float: left;
+    vertical-align: top
+}
+.twoColForm p.agree label {
+    display: inline-block;
+    width: 450px;
+    float: none;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+input#couponCode {
+    width: 100%;
+}
+
+/* Simple Form Elements Structure
+*
+* e.g. CSS3 placeholder styling, autofocus etc.
+*
+* Styleguide 1.5.3.
+*/
+
+
+/* @import "./basic/structures.less"
+ * Supportive Structures
+ *
+ * Styles to structure Basic elements
+ * e.g. Lists, Boxes, Wrapper, Forms, Basic Navigation Structures
+ *
+ * Styleguide 1.6.
+ */
+
+.checkoutPage ul, .checkoutPage li,
+.checkoutPage h1, .checkoutPage h2, .checkoutPage h3, .checkoutPage h4, .checkoutPage h5 {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.checkoutPage h3 {
+    color: #FF8800;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.checkoutPage .cartItem h3 {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    line-height: 150%;
+}
+
+.checkoutPage .pg_3 {
+    font-size: 13px;
+}
+
+/* @import "./basic/lists.less"
+ * Lists Styling
+ *
+ * Basic list, navigation list, odd/even styled
+ *
+ * Styleguide 1.6.1.
+ */
+
+/* Basic Lists types
+ *
+ * Basic Lists Design
+ *
+ * Styleguide 1.6.1.1.
+ */
+.list, .list2, .list3,
+.list_green_square,
+.list_check,
+.list_invisible, .list_invisible > ul{
+    list-style-image:url(../image/bullet.gif);
+    list-style-position:outside;
+    margin:0;
+    padding:0;
+    color :#333;
+    font-size :12px;
+    text-decoration :none;
+}
+.list2{
+    padding-left:3em;
+}
+.list2 li{
+    list-style-image:url(../image/bullet.gif);
+    list-style-position:outside;
+    font-size :12px;
+    text-decoration :none;
+}
+.list3{margin-left:1em}
+.list_green_square{list-style-image:url(../image/legacy/square_green.gif);padding-left:20px}
+.list_check{list-style-image:url(../image/legacy/a-c/check.gif);margin-left:1.5em}
+.list_invisible, .list_invisible > ul{
+    list-style-image:url(../image/legacy/leer.gif);
+}
+.list_invisible > ul{
+    padding-left:1.5em;
+}
+
+/* Navigation Lists
+ *
+ * Navigation List design
+ *
+ * Styleguide 1.6.1.2.
+ */
+ul.navigation{
+    list-style-image:none;
+    list-style:none;
+    margin:0;
+    padding:0;
+    line-height:14px;
+    color :#333;
+    font-size :12px;
+    text-decoration :none;
+}
+.navigation ul.navigation{
+    margin-left:10px;
+}
+
+li a.navitext_orangebig,
+li a.navitext_orangesmall,
+li a.orangetextsmall ,
+.navigation a.navitext_orangebig{
+    color :#FF8800;
+}
+
+h3.navigation{
+    display:block;
+    margin: 0 0 6px 0;
+}
+
+/* Odd Even
+ *
+ * Odd Even Design
+ *
+ * Styleguide 1.6.1.3.
+ */
+
+/* Special Lists
+ *
+ * Special List Design
+ *
+ * Styleguide 1.6.1.4.
+ */
+ul.joboffer{
+    padding-left: 0;
+}
+.joboffer > li{
+    font-size: 13px;
+    font-weight:bold;
+    margin-bottom: 12px;
+    list-style: none;
+}
+
+/* @import "./basic/structures/boxes.less"
+ * Box Styling
+ *
+ * Various Box designs applied to
+ * e.g. Infoboxes, Box wrappers, Boxes with Titles etc.
+ *
+ * Styleguide 1.6.2.
+ */
+
+/* Basic Boxes
+ *
+ * Basic Box Design
+ *
+ * Markup:
+ * <div class="section box">
+ *     <h3 class="boxtitle">Some Boxtitle</h3>
+ * </div>
+ *
+ * Styleguide 1.6.2.1.
+ */
+.box {
+    padding: 0;
+    border: 1px solid #999;
+    position: relative;
+
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-bottom: 15px;
+    overflow:hidden;
+}
+
+.box .boxtitle{
+    font-size: 16px !important;
+    display: block;
+    padding: 5px 8px;
+    margin:0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+/* Special Boxes
+ *
+ * Special Boxes Design
+ * e.g. Boxes with Header, Boxes with pulled out Headline
+ *
+ * Styleguide 1.6.2.2.
+ */
+
+/* allow headline to move outside a box */
+.box.wrapper.gotTitle {
+    overflow: visible;
+}
+
+/*allow box to have footenote - therefore reserve some space & make sure sidenote - doesnt affect inner textstyle*/
+.box.sidenote {
+    /*font-size: inherit - doesnt work for IE*/
+    margin-bottom: 40px;
+}
+
+#product-list{
+    position: relative;
+}
+
+#product-list td:nth-child(1){
+    width: 418px;
+}
+
+.mzp #product-list td:nth-child(1){
+    width: 507px;
+}
+#product-list td:nth-child(2){
+    width: 100px;
+}
+#product-list td:nth-child(3){
+    width: 0;
+}
+#product-list td:nth-child(4),
+#product-list td:nth-child(5),
+#product-list td:nth-child(6){
+    width: 70px;
+}
+#product-list .product-collapsing td:nth-child(1){
+    width: 100%;
+}
+#product-list .product-image{
+    width: 140px !important;
+}
+
+
+#product-list tbody{
+    display: inline-block;
+    width: 658px;
+}
+
+.mzp #product-list tbody{
+    width: 747px;
+}
+
+#product-list .product-variants-list{
+    overflow: hidden;
+}
+
+.mzp #product-list .product-collapsing {
+    width: 80.8%;
+}
+
+#product-list .product-collapsing{
+    background: #f5f5f5; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f5f5f5 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f5f5f5 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f5f5f5 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f5f5f5 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f5f5f5 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: 1px solid #E5E5E5;
+
+    -webkit-box-shadow: 0px -5px 30px 0px #FFFFFF;
+    -moz-box-shadow: 0px -5px 30px 0px #FFFFFF;
+    box-shadow: 0px -5px 30px 0px #FFFFFF;
+
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-left: 144px;
+    text-align: center;
+    width: 78%;
+}
+
+#product-list .product-collapsing *{
+    display: inline-block;
+    width: 100%;
+}
+
+#product-list .product-collapsing img{
+    width: auto;
+}
+
+#product-list .product-collapsing tr td a{
+    height: 20px;
+    width: 100%;
+}
+
+#product-list .product-collapsing tr td a span{
+    display: inline;
+}
+
+#product-group-list li{
+    margin: 15px 0;
+}
+
+.grey-white-middle ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+/*
+* Minicart Popup
+*
+* Styleguide 1.6.2.3.
+*/
+.cart-popover {
+    position: fixed;
+    display: none;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 400px;
+    min-height: 200px;
+    background-color: #FFF;
+    border: 1px solid #FFF;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
+}
+
+.cart-popover .cart-popover-header {
+    background-color: #81c630;
+    position: relative;
+    height: 40px;
+
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.cart-popover .cart-popover-header .cart-headline {
+    display: table-cell;
+    vertical-align: middle;
+    width: 310px;
+    height: 40px;
+    padding-left: 40px;
+    font-size: 13px;
+    text-align: left;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.cart-popover .cart-popover-header .icon {
+    position: absolute;
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.cart-popover .cart-popover-header .icon span {
+    display: none;
+}
+.cart-popover .cart-popover-header .icon-close {
+    top: 6px;
+    right: 5px;
+    background: transparent url(../image/icon-close.png) no-repeat 50% 50% !important;
+}
+
+.cart-popover .cart-popover-header .icon-check {
+    top: 6px;
+    left: 7px;
+    background: transparent url(../image/icon-check.png) no-repeat 50% 50% !important;
+}
+
+.cart-popover.warning_stock .cart-popover-header .icon-check,
+.cart-popover.warning .cart-popover-header .icon-check{
+    background: transparent url(../image/icon-warning5e1f.png?v=2) no-repeat 50% 50% !important;
+}
+
+.cart-popover.warning_stock .cart-popover-header,
+.cart-popover.warning .cart-popover-header{
+    background-color: #ff8800;
+}
+
+
+.cart-popover .cart-popover-body p {
+    margin: 25px 20px;
+    font-size: 13px;
+}
+
+.cart-popover .cart-popover-body .table-cart {
+    margin-top: 5px !important;
+    margin-left: 20px !important;
+    width: 360px !important;
+    border-spacing: 0;
+}
+
+.cart-popover .cart-popover-body .table-cart th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.cart-popover .cart-popover-body .table-cart td {
+    padding: 3px 0;
+    font-size: 13px;
+}
+
+.cart-popover .cart-popover-body .table-cart td.label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.cart-popover .cart-popover-body .table-cart td.amount {
+    text-align: right;
+}
+
+.cart-popover .cart-popover-body .table-cart tr.total td {
+    color: red;
+    font-weight: bold;
+    border-top: 1px solid #cccccc;
+    color: #e50000;
+    padding-top: 10px;
+}
+
+
+.cart-popover .cart-popover-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+}
+
+.cart-popover .cart-popover-footer .inner {
+    padding: 10px 4px;
+}
+
+.cart-popover .cart-popover-footer a {
+    position: absolute !important;
+    width: 180px !important;
+    padding: 4px 4px !important;
+}
+
+html body .cart-popover .cart-popover-footer a:hover {
+    background-position-y: 1px !important;
+    padding: 5px 4px 3px 4px !important;
+}
+
+.cart-popover .cart-popover-footer a.btn-goto-shop {
+    left: 5px !important;
+    background-image: url(../image/icon-arrow-left.png);
+    background-repeat: no-repeat;
+    background-position: 0 0 !important;
+}
+
+.cart-popover .cart-popover-footer a.btn-goto-cart {
+    right: 6px !important;
+    background-image: url(../image/icon-arrow-right.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0px !important;
+}
+
+
+/*
+* Info Popup
+*
+* Styleguide 1.6.2.4.
+*/
+
+.modal-open {
+    overflow: hidden;
+}
+.modal {
+    display: none;
+    overflow: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 275px;
+    max-height: 275px;
+    margin: auto;
+}
+.modal-content {
+    position: relative;
+    background-color: #FFF;
+    border: 1px solid #FF8800;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: none;
+}
+
+.modal-header {
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #e5e5e5;
+    height: 32px;
+    background-color: #FF8800;
+}
+.modal-header .close {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    right: 2px;
+    top: 2px;
+    padding: 1px 1px;
+    background: transparent url(../image/icon-close.png) no-repeat 50% 50% !important;
+    outline: 0;
+    cursor: pointer;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+.modal-body {
+    position: relative;
+    padding: 0;
+    overflow: auto;
+}
+
+.modal-body .inner {
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+/* @import "./basic/structures/tables.less"
+ * Table Styling
+ *
+ * Various Table designs applied to
+ * e.g. Ingredients, etc.
+ *
+ * Styleguide 1.6.3.
+ */
+
+/* --- wrap Table in box with rounded corners --- */
+
+.ingredients-wrapper {
+    background-color: #F5F5F5;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border: 1px solid #BFBFBF;
+    margin-top: 30px;
+}
+
+.ingredients-wrapper .inner {
+    padding: 10px 20px 10px 10px;
+}
+
+
+
+/* --- Table Incredients (scrollable) --- */
+
+.scrollable-ingredients-view {
+    margin-bottom: 5px;
+}
+
+.scrollable-ingredients-view .articles {
+    float: left;
+    width: 120px;
+}
+
+.scrollable-ingredients-view .content {
+    float: left;
+    width: 500px;
+    overflow: auto;
+}
+
+.scrollable-ingredients-view table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* --- table in articles and content --- */
+.scrollable-ingredients-view table th, .scrollable-ingredients-view table td {
+    padding: 3px 6px;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    width: 100px !important;
+}
+
+.scrollable-ingredients-view table thead th, .scrollable-ingredients-view table thead td {
+    height: 30px;
+    vertical-align: bottom;
+    border-right: 1px solid transparent;
+}
+
+/* --- set row height --- */
+.scrollable-ingredients-view .articles table td,
+.scrollable-ingredients-view .content table td {
+    height: 30px;
+}
+
+.scrollable-ingredients-view .ellipsis {
+    display: block;
+    float: right;
+    vertical-align: center;
+    width: auto;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+/* --- table in articles --- */
+.scrollable-ingredients-view .articles table {
+    width: 100%;
+}
+
+.scrollable-ingredients-view .articles table th,
+.scrollable-ingredients-view .articles table td {
+    text-align: right;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+.scrollable-ingredients-view .articles table td {
+    border-right: 1px solid #b2b2b2;
+}
+
+.scrollable-ingredients-view .content table thead th.title {
+    border-bottom: 1px solid #b2b2b2;
+}
+
+
+
+/* --- table in content --- */
+.scrollable-ingredients-view .content table th {
+    text-align: center;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.scrollable-ingredients-view .content table td {
+    white-space: nowrap;
+    background-color: #FFF;
+    text-align: center;
+}
+
+
+/* ------------------------
+   Shipping Cost Table
+------------------------ */
+
+table.shipping-costs {
+    width: 100%;
+    border-spacing: 0;
+
+    margin-top: 20px;
+    border: 1px solid #999;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+table.shipping-costs td, table.shipping-costs th   {
+    padding: 3px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+table.shipping-costs .flag,
+table.shipping-costs .deliver {
+    border-right: none;
+}
+
+table.shipping-costs td.flag img {
+    margin-top: 1px;
+}
+
+table.shipping-costs tr.last td {
+    border-bottom: none;
+}
+
+table.shipping-costs th {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+table.shipping-costs tr.even td  {
+    background-color: #f0fce1;
+}
+
+table.shipping-costs td {
+    text-align: center;
+}
+
+table.shipping-costs td.deliver {
+    text-align: center;
+}
+
+table.shipping-costs td.country {
+    text-align: left;
+}
+
+
+
+
+/*
+            1.6.4. Form (Forms, Fieldset, Legend)
+            1.6.5. Navigaton (e.g. Cancel + Submit)
+
+            */
+
+
+/* @import "./basic/structures/wrapper.less"
+ * Wrapping Structures
+ *
+ * Wrapper elements add clearing or spacing to content
+ * The usage of wrappers makes sure that padding & spacing is consistent
+ * Clearing is needed on wrapper elements to clear floating inside the element
+ * e.g. .wrapper, .widget
+ *
+ * Styleguide 1.6.6.
+ */
+
+.wrapper, ul.wrapper {
+    position: relative; /* fix floated contend */
+    overflow: hidden;
+    padding: 10px 8px; /*.wrapper overwrites .box padding*/
+}
+
+.widget{
+
+}
+.widget.wrapper {
+    padding: 5px 8px;
+}
+
+/*widgets are placed in left / right columns and run spare on space
+ * reduce amount of padding, margins*/
+.widget .boxtitle{
+    padding: 4px;
+}
+.widget .list2{
+    padding-left: 1em;
+}
+
+#left-col .widget, #left-col .zone, #right-col .widget, #right-col .zone {
+    display: block;
+}
+#left-col .widget, #right-col .widget {
+    margin-bottom: 12px;
+}
+
+#left-col .zone > script + *, #right-col .zone > script + * {
+    display: block;
+    margin-bottom: 12px;
+}
+
+
+/* @import "./basic/accessibility.less"
+* Accessibility helpers
+*
+* Helper classes & styles that allow content & controls to be placed in the page
+* - to allow Keyboard access
+* - hide semantic structure that is not wanted to be displayed (e.g. headlines for better Structure)
+*
+* Styleguide 1.7.
+*/
+
+/* if an element is targeted vie url hash, it should be displayed even if it was hidden before*/
+*:target{
+    display:inherit!important;
+}
+
+/* @import "./basic/utility.less"
+* Utility Helper
+*
+* Utility Helper Styling allows
+* - toggling view (hide & show)
+* - js specific styling (styling if Javascript is needed)
+*
+* Styleguide 1.8.
+*/
+.hide_content{
+    display:none;
+}
+
+.hide_content + div .zone{
+    position:relative;
+}
+
+
+
+/**
+ * Clearfix (modern browsers)
+ */
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+
+
+
+
+
+/* @import "./modules.less"
+ * Feature Module Styles
+ *
+ * Specific Styling to more complex Features / Plugins, both reused & specific
+ * Separation of Modules is needed to
+ * - load styling on features only (saves bandwidth)
+ * - maintain features separately
+ * e.g. Common Features (ex. header),  Specific Features (Savingsplan), Plugins (exorbyte Search)
+ *
+ * Styleguide 2.
+ */
+
+/*      2.1. Common Features (widely used / reused)
+            2.1.1. Header
+                2.1.1.1. Navigation
+                2.1.1.2. Flyout
+                2.1.1.3. Tools
+                */
+
+/* @import "./modules/footer.less"
+ * Footer Component
+ *
+ * The general Page Footer Styling
+ *
+ * Styleguide 2.1.2.
+ */
+#footer{
+
+}
+#footer .footercopyright {
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    width: auto;
+    border-bottom: 1px solid #BBBBBB;
+}
+#footer hr {
+    display: none;
+}
+
+#footer .UVP {
+    color: #AAAAAA;
+    font-size: 12px;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+
+
+/* 2.1.2. Legal Footer */
+.mzp .footer-inner * {
+    font-size: 14px;
+}
+
+.mzp .footer, .mzp .footer-inner {
+    margin: 0 auto;
+    min-height: inherit;
+    width: 1030px;
+}
+
+.mzp .footer .legal_content{
+    background-color: #3C9700;
+    margin: 10px 0;
+    padding: 10px 45px;
+}
+.mzp .footer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.mzp .footer ul li{
+    display: inline-block;
+    /*font-size: 14px;*/
+    line-height: 30px;
+    margin-right: 16px;
+}
+.mzp .footer ul li a{
+    color: #fff;
+}
+.mzp .footer ul li a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.mzp .footer-inner .UVP, .mzp .footer-inner .UVP > a{
+    color: #AAAAAA;
+}
+
+.mzp .footer-inner .UVP, .mzp .footer-inner .UVP > a, .mzp .copyright {
+    padding: 0 45px;
+    font-size: 12px;
+    margin: 0 0 20px 0;
+}
+
+
+/* @import "./modules/common/product.less"
+ * Product Module (Product Display Component)
+ *
+ * contains Product Information, IMG, rating, variants and is reused on various pages in different styles
+ * e.g. Shippingcosttable Overlay in preview page
+ *
+ * Styleguide 2.1.3.
+ */
+
+/* Head
+*
+* Head styling: Product, Price, Amount, Buy
+*
+* Styleguide 2.1.3.1.
+*/
+.head{
+    background-color: #F0FCE1;
+    border-color: #55A100;
+    border-style: solid;
+    border-width: 1px 0;
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position:relative;
+    display:table;
+    width:100%;
+    text-align:right;
+}
+
+.head span{
+    display: inline-block;
+    float:none;
+}
+
+.head .product{
+    float:left;
+}
+
+.head .price{
+    margin-bottom: 10px;
+    position:relative;
+}
+
+.head .price .sidenote{
+    display: block;
+    position: absolute;
+    white-space:nowrap;
+    left:0;
+    top:13px;
+}
+.head .buy, .head .quantity{
+    margin-left: 5px;
+    min-width: 61px;
+    text-align: center;
+}
+.head .buy{
+    min-width: 54px;
+}
+
+/* Basic (Description, IMG)
+  *
+  *
+  * Styleguide 2.1.3.2.
+  */
+
+/* Mark new product */
+.new_product:before{
+    content: url("../image/n-p/new_product_small_white.gif");
+    vertical-align: middle;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+a.new_product{
+    padding-left : 30px;  /* supportive to .new_product:before -- make new-icon area clickable but do not consume space */
+    margin-left : -30px;
+}
+
+/* limit image proportions to max */
+.products > li .image img{
+    width:140px;
+    max-height: 140px;
+}
+
+.products > li .summary,
+.products > li h4{
+    width: 72%;
+}
+
+.products > li .summary{
+    clear:left;
+}
+.products > li .image{
+    position:absolute;
+    display:inline-block;
+    left:0px;
+    top:5px;
+}
+span.overlay_specOffer{
+    background:url(../image/legacy/q-s/specialOfferOverlay_red.png) no-repeat;
+    display:block;
+    width:140px;
+    height:28px;
+    position:absolute;
+    top:118px;
+    color:#fff;
+    line-height:23px;
+    font-size:21px;
+    font-weight:bold;
+    overflow:hidden;
+    text-align: center;
+}
+span.overlay_specOffer span{
+    text-align: center;
+    font-size:14px;
+    margin-right:5px;
+}
+span.overlay_specOffer.text{
+    font-size:13px;
+}
+img.specOffer{
+    margin-bottom:10px;
+}
+.image .caption {
+    margin-top: 0.5em;
+    text-align: center;
+    display: block;
+}
+
+/* Rating and number of feedbacks Section
+ *
+ * Image with the ratings for a certain product and number of feedbacks (if any)
+ *
+ * Styleguide 2.1.3.3.
+ */
+.rating{
+    background: url("../image/star.png") no-repeat scroll 0 0 transparent;
+    width:66px;
+    height:15px;
+    position:absolute;
+    display:inline-block;
+    left:143px;
+    top:5px;
+    overflow:hidden;
+    font-size: 0px;
+}
+a.rating{
+    color:white;
+}
+
+.rating.rating_0{
+    background-position: -66px 0;
+}
+.rating.rating_1{
+    background-position: -53px 0;
+}
+.rating.rating_2{
+    background-position: -40px 0;
+}
+.rating.rating_3{
+    background-position: -27px 0;
+}
+.rating.rating_4{
+    background-position: -14px 0;
+}
+.rating.rating_5{
+    background-position: 0 0;
+}
+
+/* Temp fix rating issue on product detail pages */
+#customerbox .rating {
+    position: relative;
+    background: none;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+
+
+.products > li > .feedback{
+    left: 220px;
+    position: absolute;
+    top: 5px;
+}
+
+
+/* Add to Cart Section
+    *
+    * Form with Input / Select + Button to add a article to the cart or change its quantity
+    *
+    * Styleguide 2.1.3.4.
+    */
+
+/* [DEPRECATED]
+ * Will be replaced with changeProductCount
+ */
+.addToCart{
+    min-height:25px;
+    margin:2px 0 0 0px;
+    position: relative;
+}
+div.addToCart{
+    width:135px;
+    margin-top: 7px;
+}
+.addToCart input[type="text"]{
+    width: auto;
+    border: 1px inset;
+    border-radius: 0px;
+}
+/**/    /**/
+
+.variants .changeProductCount {
+    position: absolute;
+    right: -5px;
+    top: 40%;
+    margin-top: -15px;
+}
+
+.changeProductCount{
+    overflow:hidden;
+    width:110px;
+}
+
+.changeProductCount.noStock{
+    margin-top:-10px;
+}
+
+.changeProductCount .buy{
+    float: none;
+    position: relative;
+    /*top: 4px;*/
+    margin-left: 10px;
+}
+
+.changeProductCount select, .changeProductCount input[type="text"]{
+    display: inline;
+    width: 30px;
+    text-align: center;
+}
+
+.changeProductCount select{
+    width:53px;
+}
+
+
+/* Price Styling
+*
+* For Product & Product Variant Price display in the shop
+*
+* standard              pricetype for single Prices
+* standard_reduced      default zooplus price + reduction
+* supplier_reduced      UVP + reduced price
+* megapack_reduced      big pack reducktion
+* meta_reduced          ?
+* reduced_meta_reduced  ?
+* set_article           bundle prices summed up + reduced bundle price
+*
+* Markup:
+* <div class="price $modifier">
+*   <!-- before price is optional -->
+*   <span class="before">
+*       was <span class="val"> 99,99 € </span>
+*   </span>
+*   <span class="actual">
+*       now <span class="val"> 12,49 € </span>
+        <!-- unitprice is optional -->
+*       <span class="unit"> 1,99 € / kg </span>
+*   </span>
+* </div>
+*
+* Styleguide 2.1.3.5.
+*/
+.price .actual{
+    font-size: 12px;
+}
+
+.price .before, .price .unit {
+    font-size: 10px;
+    color: #444!important;
+    font-weight:normal!important;
+    display: block;
+}
+
+.price .unit:before {
+    content: "(";
+}
+
+.price .unit:after {
+    content: ")";
+}
+
+.products .price {
+    text-align: center;
+}
+
+.variants .price {
+    float: right;
+    max-width: 125px; /* special restrictions apply only to special pages*/
+}
+
+/*
+* Variant List
+*
+* Variant Lists styling
+*
+* Styleguide 2.1.3.6.
+*/
+.variants > li{
+    /* reserve space for the addToCart Form */
+    padding:7px 120px 7px 0;
+    min-height:0;
+    position:relative;
+}
+.variants > li:nth-child(even){
+    background:none;
+}
+.variants .variant{
+    float:left;
+    max-width:270px;
+}
+
+.products .variants{
+    margin-top:20px;
+    padding-left: 0px;
+}
+
+/*
+* Product List
+*
+* Product list styling
+*
+* Styleguide 2.1.3.7.
+*/
+ol.products, ul.products {
+    margin:0;
+    padding:0;
+    list-style: none;
+    display: block;
+}
+.products > li{
+    padding:5px;
+    padding-top:20px;
+    padding-left:145px;
+    position:relative;
+}
+
+.products > li h4{
+    display:inline-block;
+    margin:10px 0;
+}
+
+/*
+* Gridview List
+*
+* Gridview List styling
+*
+* Styleguide 2.1.3.8.
+*
+* TO BE FINISHED
+*/
+
+.products.gridview {
+    clear: both;
+    margin-top: 8px;
+}
+
+.products.gridview .result {
+    border: 1px solid #CCCCCC;
+    clear: none;
+    float: left;
+    height: 325px !important;
+    margin: 0 2.9% 2.9% 0;
+    width: 31%;
+    border-radius: 6px;
+}
+
+.products.gridview .result.last{
+    margin: 0px;
+}
+
+.products.gridview .desc {
+    height: 115px !important;
+    padding-top: 3px !important;
+    text-align: center;
+}
+
+.products.gridview .result>div {
+    float: none;
+    height: 90px;
+    width: 94%;
+    padding: 3%;
+}
+
+.products.gridview .result .prod-img{
+    height: 188px;
+    border-right: none;
+}
+
+.products.gridview .result .prod-img img {
+    border: 0 none;
+    display: inline;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.products.gridview .prod-img>div{
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+products.gridview .result .img>img{
+    border: 0 none;
+    display: inline;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.products.gridview span.overlay_specOffer {
+    left: auto;
+    margin-left: 28px;
+    margin-top: 166px;
+    top: auto;
+}
+
+.products.gridview .review {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: top;
+    margin-bottom: 3px;
+    position: relative;
+    height: 18px;
+}
+
+.products.gridview .review a{
+    display: inline-block;
+    margin: 0;
+    top: auto;
+    bottom: auto;
+    padding: 0;
+    vertical-align: top;
+}
+
+.products.gridview .review a {
+    left: auto;
+    position: relative;
+    top: auto;
+}
+
+.products.gridview .desc .prodName {
+    line-height: 15px;
+    height: 31px !important;
+    white-space: normal;
+    margin-bottom: 3px;
+    font-size: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.products.gridview .num-variants {
+    font-size: 13px;
+}
+
+.products.gridview .price {
+    margin-top: 4px;
+}
+
+.products.gridview .actual {
+    font-size: 15px;
+}
+
+/* @import "./modules/common/contentOverlay.less"
+ * Content Overlay (Popup Layer)
+ *
+ * A Box that appears on top of any page, it can contain different content
+ * e.g. Shippingcosttable Overlay in preview page
+ *
+ * Styleguide 2.1.4.
+ */
+#backgroundOverlay{
+    display:none;
+    z-index:90;
+    background-color: #fff;
+    filter:alpha(opacity=30);
+    background:rgba(255,255,255, 0.2);
+    width:100%;
+    height:3000px;
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+#popupContent{
+    -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.7);
+
+    -ms-filter: "progid:DXImageTransform.Microsoft.Glow(color=#dddddd, strength=10)";
+    filter: progid:DXImageTransform.Microsoft.Glow(color=#dddddd, strength=10);
+
+
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #FF8800;
+    display: none;
+    left: 50%;
+    margin-left: -290px;
+    position: fixed;
+    top: 90px;
+    width: 580px;
+    z-index: 100;
+}
+
+#popupContent .head{
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    background-color: #FF8800;
+    height: 20px;
+}
+
+#popupContent .content{
+    display: block;
+    height: 420px;
+    margin-bottom: 6px;
+    overflow: auto;
+}
+
+#popupContent .close{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 4px;
+    float:right;
+    cursor:pointer;
+}
+
+#popupContent button.close.box:hover{
+    color:#333;
+}
+
+
+body.content-popup-page {
+    margin: 20px;
+    background: none !important;
+}
+
+.content-popup-page {
+    padding: 20px 10px;
+}
+
+.content-popup-page td {
+    font-size: 12px;
+}
+
+.content-popup-page .header-print {
+    text-align: right;
+}
+
+.content-popup-page .print {
+    cursor: pointer;
+}
+
+.content-popup-page h2 {
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.content-popup-page ol,
+.content-popup-page ul {
+    padding: 0 0 0 30px;
+    margin: 20px 0px;
+}
+
+.content-popup-page ol,
+.content-page ol {
+    list-style-type: lower-latin;
+}
+
+.content-popup-page ol li,
+.content-popup-page ul li {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.content-popup-page div.text div {
+    margin: 20px 0px;
+    padding: 10px 20px 20px 20px !important;
+}
+
+.content-popup-page p b:nth-of-type(1) {
+    display: block;
+    padding-top: 10px;
+}
+
+.content-popup-page .box,
+.content-page .box{
+    page-break-inside: avoid;
+    border: 1px solid green;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #F0FCE1;
+}
+
+
+
+
+
+/* @import "./modules/common/coupon.less"
+ * Coupon Container / New Customer Coupon
+ *
+ * A Box that appears on top of any page, it can contain different content
+ * e.g. Shippingcosttable Overlay in preview page
+ *
+ * Styleguide 2.1.5.
+ */
+
+/* dynamic / static page workaround to support JS powered Coupon-Image update PIP-6526*/
+#couponContainer{
+    display:none;
+}
+#couponContainer.updated{
+    display:block;
+}
+
+/* @import "./modules/common/messageBoxes.less"
+ * Messages / Message boxes
+ *
+ * Information on validation or general infos are displayed in Messageboxes
+ * e.g. Logout message, validation error, free shipping notification
+ *
+ * Modifiers
+ * .NOTICE      simple notification
+ * .ERROR       form validation issue or invalid interaction notification
+ *
+ * Markup:
+ * <div class="section box message ${modifier}">
+ *      <ul class="wrapper">
+ *          <li>[${modifier}] Display of Feedback, Info or Validation Message</li>
+ *      </ul>
+ *  </div>
+ *
+ * Styleguide 2.1.6.
+ */
+.message.box.NOTICE, .message.box.ERROR {
+    padding-left: 60px;
+    min-height: 80px;
+}
+
+.message.box.ERROR {
+    padding-left: 100px;
+}
+.message li {
+    margin-left: 15px;
+
+    /*To limit dynamically filled properties in Messages to get too long - enable scrolling / max-height not supported for IE<9 Users*/
+    max-height: 210px;
+    overflow-y: auto;
+}
+
+.message .collapsed, .message li>.expanded .expanded{
+    display:inline;
+}
+
+.message .collapsed, .message .expanded{
+    cursor:pointer;
+}
+
+.message li.NOTICE {
+    padding-left: 30px;
+    min-height: 22px;
+}
+
+
+.feedbackmessage{
+    display:none;
+}
+:target .feedbackmessage, .target .feedbackmessage{
+    display:block;
+    pointer-events:none; /*additional fix for header messages overlaying clickable elements in the page*/
+}
+
+.feedbackmessage > p{
+    display:block;
+    margin-bottom: 10px;
+    padding: 35px 0 35px 120px;
+
+    position:relative;
+
+    border:#3C9700 solid thin;
+    background: url(../image/d-f/feedback_message.gif) 20px 5px no-repeat #f7fcf7;
+
+    text-align:left;
+}
+
+.checkout .feedbackmessage{
+    display:block;
+    pointer-events: auto;
+}
+
+/* [DEPRECATED]
+ * @import "./modules/common/searchBoxWidget.less"
+ * Search Box (Widget)
+ *
+ * A Box placed in Left or Right column to allow direct search on the pages
+ * has been replaced with exorbyte solution
+ *
+ * Styleguide 2.1.7.
+ */
+
+#miniSearchBox {
+    border-color: #ff8800;
+    background-color: #ff8800;
+    padding: 3px 5px;
+}
+#miniSearchBox form {
+    overflow: hidden;
+}
+
+#miniSearchBox input.text {
+    width:100%;
+}
+#miniSearchBox input.search {
+    padding-right: 7px;
+    float:right;
+    background-image:url(../image/sprites/icon_sprite.png);
+    background-repeat: no-repeat;
+}
+
+/*
+* Breadcrumbs
+*
+* Breadcrumbs used through catalog pages
+*
+* Styleguide 2.1.8.
+*/
+.breadcrumb {
+    float: left;
+}
+
+.separator {
+    margin-right: 2px;
+}
+
+
+
+/* @import "./modules/features.less"
+ * Feature Modules
+ *
+ * Feature Modules contain complex styling that is bound to a specific Feature
+ * e.g. Savingsplan, Mediacenter (Product Details), Rotating Banner
+ *
+ * Styleguide 2.2.
+ */
+
+/*
+ 2.2.1. Savingsplan
+     2.2.1.1. Savingsplanbox
+     2.2.1.2. Savingsplan Product
+     2.2.1.3. Account Page Styles*/
+
+/* Savingsbox
+ *
+ * Display a dedicated Infobox on bottom of Checkout Overview Page to outline
+ * e.g. Coupon & Discount savings
+ *
+ * Styleguide 2.2.2.
+ */
+#savingsBox {
+    padding: 0;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin-top: 30px;
+}
+
+#savingsBox h3, #savingsBox h4, #savingsBox h5{
+    margin:0;
+}
+
+#savingsBox h5 {
+    font-size: 12px;
+    font-weight: normal;
+    float: left;
+}
+
+#savingsBox ul, #savingsBox li{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+#savingsBox #orderSavings li {
+    overflow: hidden;
+}
+#savingsBox #orderSavings .price {
+    float: right;
+    position: relative;
+    top: auto;
+    right: auto;
+}
+#savingsBox #orderSavings li.total {
+    border-top: 1px solid #bbb;
+    color: #E50000;
+    font-weight: bold;
+    padding-top: 4px;
+    margin-top: 4px;
+}
+
+#savingsBox .c50l {
+    min-height: 90px;
+    background: url('../image/checkout/star_discount.gif') no-repeat 250px 20px;
+}
+
+#savingsBox .subcl, #savingsBox .subcr {
+    padding: 15px 5px 8px;
+}
+#savingsBox .subcl {
+    padding-right: 80px;
+}
+#savingsBox .subcr h4{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+#savingsBox .subcr p{
+    font-weight: bold;
+    text-align: center;
+}
+#savingsBox .subcr .displayTotal{
+    color: #E50000;
+    font-size: 20px;
+    margin: 7px 0;
+}
+
+#savingsBox .subcolumns{
+    border: 0;
+}
+#savingsBox .footerBox{
+    background: url('../image/checkout/zoopoints_background.gif') no-repeat 570px center;
+    border-top: 1px solid #ddd;
+    padding: 15px 95px 8px 5px;
+}
+
+#savingsBox .bonuspoints {
+    min-height: 22px;
+}
+
+
+/*
+            2.2.3. Shipping cost table
+            2.2.4. Product Mediacenter
+                2.2.4.1. Thumbnails
+                */
+
+/* @import "./modules/features/bannercarousel.less"
+ * Rotation Banner
+ *
+ * Hompage Main Rotation B. jQuery B. Rotation Zone Styles
+ *
+ * Styleguide 2.2.5.
+ */
+
+.zone {
+    position: relative;
+}
+.jqs_slider > *{
+    display:none;
+}
+.jqs_slider > .jqs_first{
+    display:block;
+}
+
+#jqs_nav{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    display:block;
+    z-index:99;
+}
+
+#jqs_nav > *{
+    display: inline-block;
+    color: transparent;
+    margin-left: 10px;
+    width: 10px;
+    height: 10px;
+    /*to shift numbers out of the nav_pills (IE<9fix)*/
+    overflow: hidden;
+    line-height:100px;
+
+    background-color: #ddd;
+    background: rgba(230, 230, 230, 1);
+
+
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1), 1px 1px 0px rgba(5, 5, 5, 0.6);
+    -moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+#jqs_nav > *:hover{
+    background-color: #81c52e;
+}
+#jqs_nav > .activeSlide, #jqs_nav > .activeSlide:hover{
+    background-color: #55A100;
+}
+
+/*
+            2.2.6. Special Offers Box
+
+/* @import "./modules/features/lastMinuteOfferBox.less"
+ * Last Minute Offer
+ *
+ * A Box displayed to the Customer on Cart Overview Page to add some Items to the Cart during Checkout
+ *
+ * Styleguide 2.2.7.
+ */
+.box.lastMinuteOffer {
+    border: 1px solid #55A100;
+    text-align: center;
+}
+
+.lastMinuteOffer .boxtitle{
+    border:none;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #55A100;
+    font-size: 12px;
+    margin: 0;
+    padding: 4px;
+    text-align: center;
+    zoom:1;
+}
+
+.lastMinuteOffer .products > li{
+    border-top: 1px solid #55A100;
+    padding: 7px 3px;
+    text-align: center;
+}
+
+.lastMinuteOffer .products > li:first-child{
+    border:none;
+}
+
+.lastMinuteOffer a + a {
+    color: #3C9700;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px auto;
+    display: block;
+
+}
+
+.lastMinuteOffer form {
+    margin: 5px 0
+}
+
+.lastMinuteOffer p, .lastMinuteOffer div span, .lastMinuteOffer form {
+    text-align: center;
+}
+
+.lastMinuteOffer button[type="submit"] {
+    float: none
+}
+
+.lastMinuteOffer button.button {
+    padding-bottom: 4px;
+}
+
+
+/* @import "./modules/features/checkoutProgressBar.less"
+ * Checkout Progress Bar (stepCounter)
+ *
+ * Indicator on top of the Page that shows at which step the customer is in the Checkout progress
+ *
+ * Styleguide 2.2.8.
+ */
+#stepCounter{
+    padding: 23px 0 18px 0;
+    text-align: center;
+    width: 100%;
+}
+
+ul.progressBar{
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    display:table;
+    margin: 0 auto;
+    padding:0;
+}
+
+ul.progressBar li{
+    background-position: right 0;
+    margin-left:15px;
+    padding-right:10px;
+    text-align:right;
+    position:relative;
+    display:inline-block;
+}
+
+ul.progressBar li.active{
+    background-position: right 19px;
+    margin-left: 25px;
+}
+
+ul.progressBar li.active:after{
+    content: url("../image/icons/icon_checkoutCartOrange.gif");
+    position:absolute;
+    right:0;
+    top:-17px;
+    /*background-color:#FF8800;*/
+    width:73px;
+}
+
+ul.progressBar li.inactive{
+    background-position: right 38px;
+
+}
+ul.progressBar li, ul.progressBar .counter{
+    background-image:url("../image/checkout/progressBar_roundBorders.gif");
+}
+
+ul.progressBar li .counter{
+    font-weight:bold;
+    color:transparent;
+    font-size:0;
+    width:10px;
+    height:19px;
+    background-position: 0 0;
+    display:inline-block;
+    position:absolute;
+    left:-10px;
+    top:0px;
+}
+
+ul.progressBar li.active .counter{
+    background-image:url("../image/checkout/progressBar_active_big.gif");
+    background-position: 0 0;
+    color: white;
+    font-size: 16px;
+    height: 28px;
+    left: -20px;
+    line-height: 30px;
+    text-align: center;
+    top: -5px;
+    width: 28px;
+}
+
+ul.progressBar li.inactive .counter{
+    background-position: 0 38px;
+}
+ul.progressBar li .step{
+    background-color: #339933;
+    display:inline-block;
+    padding:0px 10px;
+    line-height:19px;
+}
+
+ul.progressBar li.active .step{
+    background-color: #FF8800;
+}
+
+ul.progressBar li.inactive .step{
+    background-color: #91c391;
+}
+
+/* @import "./modules/features/checkoutCartTable.less"
+ * Checkout Cart Table
+ *
+ * Display all Products, and other Cart Items like DSPs, Coupons Subtotal, Total etc
+ *
+ * Styleguide 2.2.9.
+ */
+
+h4.boxTitle {
+    color: #FF8800;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#cartTable h3, #cartTable h4, #cartTable h5{
+    margin:0;
+
+}
+
+#cartTable.box {
+    overflow: visible;
+}
+
+.cartItem:nth-child(even){
+    background-color: #f5f5f5;
+}
+.oddEven > .cartItem.odd{
+    background-color: #f5f5f5;
+}
+
+
+
+/* DSP & Deduction Section*/
+.cartItem.dsps form ul, .cartItem.discounts.coupons ul {
+    display: table;
+    width: 100%;
+}
+.cartItem.dsps form ul li:not(:last-child), .cartItem.discounts.coupons  ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.cartItem.dsps li img {
+    margin-bottom: -4px;
+}
+.cartItem.dsps p, .cartItem.discounts.coupons p, .cartItem.coupons p, .cartItem.shippingcosts p {
+    float: left; /* not x-browser but if ie got some gaps ... bad luck - if requested fix much later :) */
+    max-width: 350px;
+    clear: both;
+    margin: 0;
+}
+
+.cartItem.dsps form, .cartItem.discounts.coupons form, .cartItem.discounts form, .cartItem.discounts.coupons form, .overview .shippingcosts form {
+    float: right;
+}
+.cartItem.dsps label, .cartItem.discounts.coupons label {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* cartItem ul refers to DSPs and coupon lists */
+#cartTable > ul, .cartItem  ul, .cartItem  li{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+#cartTable .products  > li{
+    min-height: auto;
+    position: relative;
+    display: block;       /* To fix the compatibility issue */
+    /*overflow: hidden; allow overlay exceed item borders*/
+    height: 100px;
+}
+#cartTable .products  > li.headerlabel{
+    height: auto;
+}
+
+/*expandable productdescription on preview page*/
+.cartItem.products li div.collapsed{
+    position:relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    filter: alpha(opacity=60); /*ie5-7*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /*ie8 */
+    opacity: 0.6;
+
+    padding-right:15px;
+}
+
+.cartItem.products li div.collapsed::after{
+    content:"";
+    background: url("../image/sprites/icon_sprite.png") -20px -207px transparent;
+    width:7px;
+    height:9px;
+    display:inline-block;
+    position:absolute;
+    right:7px;
+    top:4px;
+}
+
+.cartItem.products li div.expanded, .cartItem.products li div.collapsed:target,
+.cartItem.products li div.collapsed:hover{
+    overflow-y: auto;
+    opacity: 1;
+    max-height: 250px;
+    background: white;
+    -o-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+
+    padding: 0 6px 8px 10px;
+    margin-left: -10px;
+
+    -moz-box-shadow: 0px 3px 2px #999;
+    -webkit-box-shadow: 0px 3px 2px #999;
+    box-shadow: 0px 3px 2px rgba(0,0,0,0.5);
+
+    white-space: normal;
+    position: absolute;
+    z-index: 99;
+}
+
+.cartItem.products li div.expanded::after, .cartItem.products li div.collapsed:target::after,
+.cartItem.products li div.collapsed:hover::after{
+    background-position: -12px -215px;
+    width:9px;
+    height:7px;
+    top:6px;
+    right:8px;
+    opacity:0.3;
+}
+
+/* 2.2.10. My Zooplus */
+.mzp_overview section h1 {
+    margin-bottom: 5px;
+    width: 100%;
+}
+.mzp_overview section{
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    min-height: 80px;
+    padding: 10px;
+    position: relative;
+}
+.mzp_overview section section{
+    border: 0px;
+    border-bottom: 1px solid #CCCCCC;
+    border-radius: 0;
+    margin-bottom: 0;
+    margin-left: -5px;
+    padding: 10px 5px;
+    width: 100%;
+}
+.mzp_overview section p{
+    width: 75%;
+}
+.mzp_overview section section p{
+    margin: 0;
+}
+.mzp_overview section section:last-child{
+    border-bottom: 0px;
+}
+.mzp_overview .bold,
+.mzp_overview .navigation a{
+    font-weight: bold;
+    clear: right;
+}
+.mzp_overview .highlight.bold{
+    color: red;
+}
+.mzp_overview .important{
+    color: red;
+    font-weight: bold;
+}
+.mzp_overview .big{
+    font-size: xx-large;
+}
+
+.mzp_overview .navigation{
+    bottom: 10px;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+}
+.mzp_overview .navigation button,
+.mzp_overview .navigation a{
+    display: block;
+}
+.mzp_overview .navigation button{
+    float: right;
+}
+.mzp_overview .navigation a{
+    margin-right: 7px;
+}
+.mzp_overview .navigation button:after,
+.mzp_overview .navigation a:after {
+    background: url("") no-repeat top right;
+    content: "";
+    display: inline-block;
+    height: 9px;
+    margin-left: 5px;
+    width: 9px;
+}
+.mzp_overview .navigation a:after {
+    background-image: url("../image/a-c/arrow_green.gif");
+}
+.mzp_overview .navigation button:after {
+    background-image: url("../image/a-c/arrow_white.gif");
+}
+.mzp_overview div.half-screen{
+    overflow: hidden;
+}
+.mzp_overview div.half-screen section{
+    float: left;
+    overflow: hidden;
+    width: 46.37%;
+}
+.mzp_overview div.half-screen section p{
+    width: 100%;
+}
+
+/* 2.2.10.1 Last Order */
+#last-order .navigation button{
+    margin-bottom: 10px;
+}
+#last-order #order-status:before{
+    content: "\2713";
+    font-size: large;
+}
+
+/* 2.2.10.2 Newsletter */
+.mzp_overview #newsletter,
+.mzp_overview #my-family-pet-of-day{
+    height: 256px;
+}
+.mzp_overview #newsletter p{
+    margin-bottom: 0;
+}
+.mzp_overview #newsletter img{
+    display: block;
+}
+
+/* 2.2.10.3 Pet of the day */
+.mzp_overview #my-family-pet-of-day{
+    margin-left: 10px;
+}
+.mzp_overview #my-family-pet-of-day h1{
+    height: 15%;
+}
+.mzp_overview #pet-of-day{
+    height: 35%;
+    overflow: hidden;
+    width: 100%;
+}
+.mzp_overview #pet-of-day img{
+    float: left;
+    margin-right: 30px;
+    max-height: 82px;
+    max-width: 82px;
+}
+
+/* 2.2.10.4 Bonus Program */
+.mzp_overview #bonus-program .navigation button{
+    margin-bottom: 10px;
+}
+.mzp_overview .half-screen #bonus-program,
+.mzp_overview .half-screen #savings-plan{
+    height: 210px;
+}
+
+/* 2.2.10.5 Savings Plan */
+.mzp_overview #savings-plan{
+    margin-left: 10px;
+}
+.mzp_overview #savings-plan h3{
+    color: #BB0000;
+}
+.mzp_overview #savings-plan img{
+    float: left;
+}
+
+/* 2.2.10.6 Personal data */
+.mzp_overview #personal-data section{
+    min-height: 100px;
+}
+.mzp_overview #personal-data #email #maskedPassword{
+    margin-top: 5px;
+}
+
+/* 2.2.10.7 Savings Plan Banner */
+.mzp_overview #savings-plan-banner{
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+}
+.mzp_overview #savings-plan-banner h2,
+.mzp_overview #savings-plan-banner-added h2{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+.mzp_overview #savings-plan-banner img,
+.mzp_overview #savings-plan-banner button,
+.mzp_overview #savings-plan-banner-added button{
+    float: right;
+}
+.mzp_overview #savings-plan-banner ul{
+    padding-left: 20px;
+}
+.mzp_overview #savings-plan-banner form ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+.mzp_overview #savings-plan-banner form li{
+    padding: 6px;
+}
+.mzp_overview #savings-plan-banner form li:nth-child(odd){
+    background-color: #f0f0f0;
+}
+.mzp_overview #savings-plan-banner form ul>li>label>.price{
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 45px;
+}
+.mzp_overview #savings-plan-banner .footnote{
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.mzp_overview #savings-plan-banner-accordion{
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#e5e5e5));
+    background: -webkit-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%);
+    background: linear-gradient(to bottom, #f5f5f5 0%,#e5e5e5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 );
+    border-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    min-height: inherit;
+    padding: 7px 0;
+    text-align: center;
+    width: 99.8%;
+}
+.mzp_overview #savings-plan-banner-accordion a{
+    display: inline-block;
+    width: 100%;
+}
+.mzp_overview #savings-plan-banner-accordion #show-more{
+    display: none;
+}
+.mzp_overview #savings-plan-banner-added{
+    min-height: 60px;;
+}
+
+
+/* 2.2.11. My Zooplus edit address */
+#mzp_AddressNew h4{
+    margin-top: 20px;
+}
+#mzp_AddressNew fieldset{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+#mzp_AddressNew legend{
+    margin: 0 0 20px 0;
+}
+#mzp_AddressNew label{
+    display: block;
+    margin: 5px 0 3px 0;
+    padding: 0;
+    text-align: left;
+}
+#mzp_AddressNew input[type=radio] + label,
+#mzp_AddressNew input[type=checkbox] + label{
+    display: inline-block;
+}
+#mzp_AddressNew select:disabled,
+#mzp_AddressNew input:disabled,
+#mzp_AddressNew textarea:disabled{
+    background-color: rgb(235, 235, 228);
+    color: rgb(84, 84, 84);
+}
+#mzp_AddressNew select.error,
+#mzp_AddressNew input.error,
+#mzp_AddressNew textarea.error{
+    border: 2px solid red;
+}
+#mzp_AddressNew .multiColumns{
+    border: 0;
+    padding: 0;
+}
+#mzp_AddressNew .multiColumns div{
+    float: left;
+}
+#mzp_AddressNew .highlight{
+    color: red;
+    font-weight: bold;
+}
+#mzp_AddressNew .hint{
+    font-size: 10px;
+    margin-left: 0;
+}
+#mzp_AddressNew .twoColForm{
+    margin-left: 50px;
+}
+#mzp_AddressNew .box_form_grey_middle .twoColForm,
+#mzp_AddressNew .box_form_grey_middle .box-wrapper{
+    display: none;
+}
+#mzp_AddressNew .box_form_grey_bottom{
+    height: 100px;
+}
+#mzp_AddressNew .box_form_activ_middle .twoColForm,
+#mzp_AddressNew .box_form_activ_middle .box-wrapper{
+    display: block;
+}
+#mzp_AddressNew .box_form_activ_bottom{
+    height: 13px;
+}
+#mzp_AddressNew .box_form_grey_bottom,
+#mzp_AddressNew .box_form_activ_bottom{
+    clear: both;
+}
+.mzp .box_form_activ_middle,
+.mzp .box_form_grey_middle{
+    margin:0;
+}
+
+
+/* 2.2.12. Product Reco. */
+[id|=reco-title] {
+    display: none;
+}
+.reco-box{
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.reco-box h5{
+    font-weight: normal;
+    text-align: center;
+}
+.reco-box.vertical{
+    border: 1px solid #55A100;
+    border-radius: 6px;
+    max-width: 200px;
+}
+.reco-box.vertical h3{
+    background-color: #55A100;
+    color: #fff;
+    font-size: 13px;
+    margin: 0;
+    text-align: center;
+}
+.reco-box .product-box,
+.reco-box .variant-box{
+    overflow: hidden;
+}
+.reco-box .product-box footer,
+.reco-box .variant-box footer{
+    min-height: 39px;
+}
+.reco-box.horizontal .product-box,
+.reco-box.horizontal .variant-box{
+    display: inline-block;
+    padding: 15px 2px 0 2px;
+    width: 157px;
+    text-align: center;
+}
+.reco-box.horizontal .product-box header,
+.reco-box.horizontal .variant-box header{
+    margin-bottom: 10px;
+}
+.reco-box.vertical .product-box,
+.reco-box.vertical .variant-box{
+    border-bottom: 1px solid #55A100;
+    margin: 0 auto;
+    padding: 6px 15px 0 15px;
+    text-align: center;
+}
+.reco-box .product-box:last-of-type,
+.reco-box .variant-box:last-of-type{
+    border-bottom: none;
+    margin-right: 0;
+}
+.reco-box .product-box .body,
+.reco-box .variant-box .body{
+    overflow: hidden;
+}
+.reco-box .product-box h5,
+.reco-box .variant-box h5{
+    color: inherit !important;
+    height: 29px;
+}
+.reco-box .product-box p,
+.reco-box .variant-box p{
+    margin-bottom: 7px;
+}
+.reco-box.vertical footer button{
+    float: none;
+    margin-bottom: 5px;
+}
+.reco-box ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reco-box[data-reco-template="productreco-template-products-vertical"] h3{
+    background-color: #ff8800;
+}
+.reco-box[data-reco-template="productreco-template-products-vertical"],
+.reco-box[data-reco-template="productreco-template-products-vertical"] .product-box,
+.reco-box[data-reco-template="productreco-template-products-vertical"] .variant-box{
+    border-color: #ff8800;
+    padding-bottom: 3px;
+}
+.reco-box[data-reco-template="productreco-template-variants"] h5{
+    height: 35px;
+    overflow: hidden;
+}
+
+
+/* 2.3.2 exorbyte search */
+
+.exo-sorting ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.exo-list .changeProductCount .buy {
+    margin-top: -4px;
+    margin-left: 1px;
+}
+
+.exo-list .input-group {
+    float: left;
+}
+
+.exo-list .changeProductCount {
+    float: left;
+    padding-top: 10px;
+    width: 125px;
+}
+
+.exo-list .variants > li{
+    padding: 7px 145px 7px 0;
+}
+
+.exo-list .changeProductCount > select{
+    right: -21px;
+    position: relative;
+    margin-right: 26px;
+}
+
+
+/*
+.cartItem.products li.headerlabel {
+  height: auto;
+}   */
+
+/*
+        2.3. Plugins
+            2.3.1. jQuery Zoom (Mediacenter)
+            2.3.2. exorbyte search
+            2.3.3. Hills Club
+            2.3.4. Eukanuba
+            */
+
+/* @import "./pages.less"
+ * Page specific styles
+ *
+ * Specific Styling of Pages
+ * e.g. Catalog, Checkout, Account (my Zooplus)
+ *
+ * Styleguide 3.
+ */
+
+/* @import "./pages/catalog.less"
+ * Shop Catalog Pages
+ *
+ * Styles & Structures specific to Catalog Pages
+ * e.g. Overview, Listpages, Search, Product Detail Pages
+ *
+ * Styleguide 3.1.
+ */
+/*
+     3.1. Catalog
+         3.1.1. Homepage
+         3.1.2. Product Category Page
+         3.1.3. Supplier Page
+         */
+
+/* @import "./pages/catalog/productList.less"
+ * Product List Page
+ *
+ * Product list pages
+ *
+ * Styleguide 3.1.4.
+ */
+.listview li {
+    list-style: none;
+}
+
+/*Listview has Images of 140/150px + Overlay + some caption(links)*/
+.listview.products > li{
+    min-height: 150px;
+}
+/* added second codeblock because IE 7/8 does not interpret the selector or style after an unknown pseudo selector*/
+.listview.products > li:nth-child(even){
+    background-image: url("../image/products/products_background.gif");
+    background-position: -61px 0;
+}
+.listview.products > li.even{
+    background-image: url("../image/products/products_background.gif");
+    background-position: -61px 0;
+}
+
+
+td.delivery-time-ct {
+    vertical-align: top;
+    padding: 5px 5px 0 0;
+}
+
+.delivery-time {
+    font-size: 11px;
+    font-style: italic;
+}
+
+.delivery-time a {
+    cursor: pointer;
+    font-style: normal;
+}
+
+#exo-results .delivery-time {
+
+}
+
+
+.delivery-time-detail-ct {
+    margin: 30px 0 10px 0;
+}
+
+.delivery-time-detail-ct .delivery-time {
+    border: none !important;
+}
+
+.delivery-time-detail-ct .delivery-time span {
+    padding: 0 !important;
+}
+
+/*
+3.1.5. Product Detail Page
+
+*/
+
+/* @import "./pages/catalog/productFeedback.less"
+ * Product Feedback Page
+ *
+ * Feedback & Rating styles for the Feedback Page itself
+ *
+ * Styleguide 3.1.6.
+ */
+#feedbackList p, #feedbackList h2{
+    /*force linebreak for too long text*/
+    max-width: 658px;
+    word-wrap: break-word;
+}
+
+
+/* @import "./pages/catalog/productFeedback.less"
+ * Special Offers Pages
+ *
+ * Special Offer / Specials Page styling incl. Special Tab navigation
+ *
+ * Styleguide 3.1.7.
+ */
+
+
+/* @import "./pages/checkout.less"
+ * Checkout Pages
+ *
+ * Styleguide 3.2.
+ */
+
+
+/* @import "./pages/checkout/login.less"
+ * Checkout Login Page
+ *
+ * Styleguide 3.2.1.
+ */
+.checkout.login .box .boxtitle{
+    border:none;
+    padding: 0;
+}
+
+
+/*
+            3.2.2. Registration
+                3.2.2.1. Address
+                3.2.2.2. Account
+                3.2.2.3. Payment
+*/
+
+/*
+ * 3.2.3. Cart Overview
+ */
+
+
+
+
+
+/* Cart Preview Page
+ *
+ * Styles for Checkout - Cart Preview Page
+ * e.g. Customer Data Box
+ *
+ * Styleguide 3.2.4.
+ */
+.customerData .boxtitle{
+    padding: 0;
+    border: none;
+}
+
+/*            3.2.5. Checkout Finish / Paymentrouter
+            3.2.6. Gift Voucher, Gift Coupon Configuration
+        3.3. Selfcare Area / Account
+ */
+
+/* @import "./pages/content.less"
+ * Content Pages
+ *
+ * The Content Page System works as some sort of CMS that allows change & creation of pages without release
+ * e.g. help, imprint, shipping costs page, ...
+ *
+ * Styleguide 3.4.
+ */
+/* Images / Graphics within text
+ *
+ * figure left      Image left floating in Text
+ * figure right     Image right floating in Text
+
+ * Markup:
+ * <p class="text_n_img">
+ *    <span class="figure &{modifier}">
+ *       <img src="" alt="..."/>
+ *    </span>
+ * </p>
+ */
+.text_n_img{
+    overflow:hidden;
+}
+.text_n_img img{
+    display: block;
+}
+.text_n_img img.left, .text_n_img .figure.left{
+    float:left;
+    margin: 0 10px 8px 0;
+}
+.text_n_img img.right, .text_n_img .figure.right{
+    float:right;
+    margin: 0 0 8px 10px;
+}
+
+/* Graphics + Caption
+ * Class names choosen close to HTML5 Draft for Figures & Captions
+ */
+.figure{
+    /*table + width 1px will adopt size of figure to minimum (> 1 ) to keep long captions limited to images size*/
+    display: table;
+    width: 1px;
+}
+.figureCaption{
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+
+
+
+
+/* --------------------------------------------- */
+
+
+/* iconsprite */
+#magnify{
+    background-image:url(../image/sprites/icon_sprite.png);
+    background-repeat: no-repeat;
+}
+
+
+/* --- Anchor Top --- */
+.anchor-top {
+    width:658px;
+    padding-top:5px;
+}
+
+
+
+/* get rid of margin bottom after footer */
+body {
+    margin-bottom: 0 !important;
+}
+
+#_mainsearch {
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+/* input-groups */
+
+
+.input-group input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.input-group input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+.input-group input {
+    line-height: 1 !important;
+}
+
+.input-group input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.input-group-addon:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+.input-group-addon {
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555555;
+    text-align: center;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.input-group-addon:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
+}
+.input-group-addon:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: 0;
+}
+
+.input-group-plus-minus {
+    width: 80px !important;
+}
+
+.cartItem .input-group-plus-minus {
+    margin: 0 auto;
+}
+
+.input-group-plus-minus .input-group-addon {
+    border-color: #d3d3d3;
+    background-color: #e5e5e5;
+    color: #c5c5c5;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: block;
+    float: left;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 20px;
+}
+
+.input-group-plus-minus .input-group-addon span {
+    display: block;
+    text-align: center;
+}
+
+.input-group-plus-minus input {
+    width: 25px !important;
+    padding-top: 3px !important;
+    height: 13px;
+    text-align: center !important;
+    border: 1px solid #d3d3d3 !important;
+    display: block;
+    float: left;
+    border-radius: 0;
+}
+
+.input-group-plus-minus-active .input-group-addon {
+    border-color: #bfe292;
+    color: #198900;
+    cursor: pointer;
+}
+
+.input-group-plus-minus-active input {
+    border: 1px solid #bfe292 !important;
+    color: #000;
+}
+
+
+.inc-amount span, .dec-amount span {
+    display: none !important;
+}
+
+.inc-amount, .dec-amount {
+    background-image: url(../image/plus-minus-sprite.png) !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    background-position: -100px -100px;
+    height: 14px !important;
+}
+
+.inc-amount {
+    background-position: 50% -22px;
+}
+
+.dec-amount {
+    background-position: 50% 1px;
+}
+
+
+
+
+
+
+
+
+.count-area, .add-to-cart-area {
+    position: absolute;
+    height: 26px;
+}
+
+.count-area {
+    width: 80px;
+    text-align: right;
+}
+
+.count-area .input-group-plus-minus {
+    float: right;
+    margin-top: 3px;
+}
+
+.count-area select {
+    margin-left: 1px;
+    margin-top: 4px;
+    margin-right: 6px;
+    width: 50px;
+}
+
+.ie8 .count-area select {
+    margin-right: 0 !important;
+}
+
+.add-to-cart-area {
+    margin-left: 85px;
+}
+
+
+.checkout .changeProductCount .wrapper {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.checkout .changeProductCount .wrapper .update,
+.checkout .changeProductCount .wrapper .remove {
+    float: none;
+    margin: 5px 2px;
+    line-height: 30px;
+}
+
+.checkout .changeProductCount .wrapper .remove {
+    margin-top: 6px;
+}
+
+.checkout .changeProductCount .wrapper .buttons {
+    text-align: center;
+}
+
+
+
+
+.box .inner {
+    padding: 20px;
+    margin-right: 5px;
+}
+
+.box-login, .box-register, .box-incognito {
+    width: 318px;
+    float: left;
+}
+
+.box-login {
+    margin-right: 15px;
+    background-color: #f0fddf;
+}
+
+.box .claim-info {
+    margin-top: 15px;
+}
+
+.box-login .claim-info {
+    margin-top: 45px;
+}
+
+.box .claim-info h5 {
+    margin-bottom: 6px;
+    line-height: 14px;
+}
+
+.box ul.claim-description {
+    position: static;
+    padding-left: 14px !important;
+}
+
+.box ul.claim-description li {
+    padding: 1px 0;
+    list-style: disc;
+    list-style-image: url("../image/bullet.gif");
+    list-style-position: outside;
+}
+
+.box .newCustomer {
+    color: #E50000;
+}
+
+.box .hide {
+    display: none;
+}
+
+
+
+.payment-option .twoColForm,
+.mzp-payment-option .form-element{
+    display: none;
+}
+
+.payment-option.active .twoColForm,
+.mzp-payment-option.active .form-element{
+    display: table-row;
+}
+
+#credit-card-title{
+    position: relative;
+    margin: -14px 5px 0 25px;
+    display: block;
+    height: 32px;
+    background: url("../image/supported-creditcards.png") no-repeat center right transparent;
+}
+
+
+.register .section-address .subcolumns,
+.register .section-newsletter .subcolumns {
+    background: transparent url(../image/bg-newsletter-selection.jpg) repeat-y 0 0;
+    border: none !important;
+}
+
+.register .section-address {
+    margin-bottom: 15px !important;
+}
+
+.register .section-newsletter {
+    position: static;
+    margin-top: 0 !important;
+}
+
+.register .sidenote-newsletter {
+    text-align: center;
+    margin: 0 90px;
+}
+
+/* 3.5. Fixed to top Adzone */
+#fix-to-top{
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 9000; /* the add-to-cart popup is at 10000 */
+}
+#fix-adzone{
+    display: block;
+}
+
+

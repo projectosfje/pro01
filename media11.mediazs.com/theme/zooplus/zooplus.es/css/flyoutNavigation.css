@@ -1,0 +1,2243 @@
+/*
+    @import "baseStyles.css";
+    @import "ButtonStyles_v2.css";
+    @import "basicForms.css";
+*/
+
+/*  @module normalize.css
+    RESET Styles
+*/
+    body{
+        margin-top:0px;
+    }
+
+    .flyout_nav *{
+        font-family: Arial, Verdana, Helvetica, sans-serif;
+    }
+
+    .flyout_nav form{
+        margin-bottom:0;
+    }
+
+/*  @module baseStyles.css
+    generic zooplus styles
+*/
+    a, a:link, a:visited,
+    .link_highlight, .navtext {
+        text-decoration :none;
+        color :#3C9700;
+    }
+    a:link:hover, a:visited:hover, a:hover,
+    .link_highlight{
+        text-decoration :none;
+        color :#FF8800
+    }
+    a:active{
+        text-decoration :none;
+        color :#FFCC33
+    }
+
+    .special li a, .flyout_nav .col ul.special li, .special{
+        color:red;
+        font-weight:bold;
+    }
+
+/*  @module baseStyles.css
+    Generic Structure Styles
+*/
+    .pull-right {
+        float: right;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    /* accessibility structure */
+    .invisible {
+        position: absolute !important;
+        left: -9999px;
+        top:-9999px;
+    }
+
+
+/* @module ButtonStyles_v2.css
+Buttons V2
+Button Styling introduced with new Header Navigation
+- overwriting old & renewed Buttons
+- based on Bootstrap Buttons
+
+:hover      - hover state for Button
+:active     - a pressed Button
+:disabled   - you cannot use this Button now
+.disabled   - same like disabled pseudo-class
+.primary    - for the main Form / Page action - use whenever creating somthing
+.primary:hover      - hover state for Primary Button
+.primary:active     - a pressed Primary Button
+.primary:disabled   - you cannot use this Primary Button now
+.primary.disabled   - same like disabled pseudo-class on Primary Buttons
+
+Markup:
+<button class="btn {$modifiers}">Button (button.btn)</button>
+<a class="btn {$modifiers}">Button (a.btn)</a>
+<input type="submit" class="btn {$modifiers}" value="Button (input.btn)" />
+
+Styleguide 4.1.1
+*/
+
+    a.btn, button.btn, input.btn {
+        display: inline-block;
+        *display: inline;
+
+        float:none;/*clearing shop5 general styling*/
+
+        padding: 4px 7px 5px;
+        margin-bottom: 0;
+        *margin-left: .3em;
+
+        font-size: 13px;
+        font-weight:bold;
+        line-height: 20px;
+        *line-height: 20px;
+        color: #333333;
+        text-align: center;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        /*text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.15)*/
+        vertical-align: middle;
+        cursor: pointer;
+
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+
+        background: none;
+        filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+        filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+        *zoom: 1;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /*standard zooplus Button*/
+    a.btn, button.btn, input.btn{
+        color: #fff;
+        text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.15);
+
+        background-color: #66B100;
+        *background-color: #66B100;
+        background-image: -ms-linear-gradient(bottom, #56A100 8%, #81C52E 75%);
+        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.08, #56A100),color-stop(0.75, #81C52E));
+        background-image: -webkit-linear-gradient(bottom, #56A100 8%, #81C52E 75%);
+        background-image: -o-linear-gradient(bottom, #56A100 8%, #81C52E 75%);
+        background-image: linear-gradient(bottom, #56A100 8%, #81C52E 75%);
+        background-image: -moz-linear-gradient(bottom, #56A100 8%, #81C52E 75%);
+        background-repeat: repeat-x;
+        border: 1px solid #3C9700;
+        border-color:rgba(60, 151, 0, 0.2);
+        *border: 0;
+        border-bottom-color: #380;
+    }
+
+    #headerMiniCart a.btn{
+        line-height: 14px;
+        *line-height: 14px;
+    }
+
+    .btn.primary{
+        color: #fff !important;
+        text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.1);
+
+        background-color: #ff8800;
+        *background-color: #ff8800;
+        background-image: -ms-linear-gradient(bottom, #FD8600 8%, orange 75%);
+        background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.08, #FD8600),color-stop(0.75, orange));
+        background-image: -webkit-linear-gradient(bottom, #FD8600 8%, orange 75%);
+        background-image: -o-linear-gradient(bottom, #FD8600 8%, orange 75%);
+        background-image: linear-gradient(bottom, #FD8600 8%, orange 75%);
+        background-image: -moz-linear-gradient(bottom, #FD8600 8%, orange 75%);
+        background-repeat: repeat-x;
+        border: 1px solid #ff8800;
+
+        *border: 0;
+        border-bottom-color: #D70;
+    }
+    .btn.primary:hover, .btn.primary:focus {
+        background-color: orange !important;
+        *background-color: #Fe8000 !important;
+    }
+
+
+
+
+    .btn:hover, button.btn:hover,
+    .btn:focus, button.btn:focus,
+    .btn:active, button.btn:active{
+        background-color: #e6e6e6;
+        *background-color: #d9d9d9;
+    }
+
+    .btn:active, button.btn:active{
+        background-color: #cccccc \9;
+    }
+
+    .btn:first-child, button.btn:first-child{
+        *margin-left: 0;
+    }
+
+    .btn:hover, button.btn:hover,
+    .btn:link:hover,
+    .btn:focus, button.btn:focus{
+        padding: 5px 7px 4px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #81C52E;
+        *background-color: #56A100;
+        /* Buttons in IE7 don't get borders, so darken on hover */
+
+        background-position: 0 5px;
+
+        -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+
+
+    a.btn:hover, a.btn:focus{
+        padding: 5px 10px 3px;
+    }
+
+    /*
+        a wrapper inside a Button to enable multiline Text vertically & horizontally centered
+    */
+    .btn .wrapper, a.btn .wrapper{
+        display: table-cell;
+        height: inherit;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
+        width: inherit;
+        text-align: center;
+    }
+
+    .flyout_nav button{
+        cursor: pointer;
+        -webkit-appearance: button;
+    }
+
+/* Reset Form / Inputs*/
+.flyout_nav button, .flyout_nav input{
+    margin: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+/* @module BasicForm_v2.css
+    Basic Forms V2
+*/
+/* generische stylings (bootstrap)*/
+    .flyout_nav input[type="text"],
+    .flyout_nav input[type="search"]{
+        display: inline-block;
+        height: 21px;
+        margin-bottom: 0px;
+
+        font-size: 13px;
+        line-height: 20px;
+        color: #555555;
+    }
+
+    .flyout_nav input[type="text"],
+    .flyout_nav input[type="search"]{
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+/*
+Iconed Buttons (V2)
+Buttons with special Roles might receive Icons
+
+.primary.icon-cart    - for the main Form / Page action - us whenever creating somthing
+
+Markup:
+<button class="btn {$modifiers}">Button (button.btn)</button>
+<a class="btn {$modifiers}">Button (a.btn)</a>
+
+Styleguide 4.1.2
+*/
+.btn > .icon{
+    display: inline-block;
+    float: left;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.icon.icon-cart{
+    width: 25px;
+    height: 21px;
+    background: url(../image/icons/cart.png) transparent no-repeat 0 0;
+    margin-right: 2px;
+    margin-top: 4px;
+}
+
+
+/* @module headerNavigation.css
+    New Header Navigation with Flyout based Navigation, Servicelinks, Advantage Area, Search and Minicart
+    Styleguide 3
+*/
+
+/*  @module normalize.css
+    RESET STYLES
+*/
+    .flyout_nav ul, .flyout_nav li{
+        position: relative;
+        margin:0;
+        padding:0;
+
+        list-style:none;
+    }
+
+    .nav-tab h4, .nav-tab h5, .nav-tab h6{
+        margin:0;
+        padding:0;
+
+        font-weight:bold;
+    }
+
+/*
+New Header Flyout based Navigation
+a Module that renders the Top Level Navigation in a structured way, with flyouts, active Tabs, special Tabs, Multicolumn layout and Pet-Type themeing
+
+Styleguide 3.1
+*/
+    .flyout_nav{
+        position:relative;
+        width: 1004px;
+        z-index:5;
+
+        font-size: 13px;
+    }
+
+    .flyout_nav > #topNavigation{
+        /*position:relative; removed due to incompatibility with IE7 hiding everything that crosses the div boundaries*/
+        position: relative;
+        display: table;
+        width: 100%;
+        clear: both;
+
+        border-bottom: 1px solid #3C9700;
+
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+
+        background-image: url(data:image/gif;base64,R0lGODlhAQAiAMQAAG61GnS6IG20GHG4HXe9I2StD2mwFFmjA3m+JXC2G33BKV6oCWGqDHW7ImauEV2nB37DK1qkBHvAKGuzF3q/JnO5H1umBmqyFWOsDmevEmCpC1eiAYDELVahAIHFLgAAACH5BAAAAAAALAAAAAABACIAAAUboCdykCJRCNEE1ZAAwnQZmVNgjLY8VnRsnU4IADs=);
+        background-position: left bottom;
+        background-color: #55a100;
+    }
+
+    /*
+        BRAND
+    */
+    .flyout_nav .brand{
+        float: left;
+        color: transparent;
+        font-size: 0;
+        line-height: 0;
+
+        margin-top: 3px;
+        margin-left: 9px;
+        margin-right: 23px;
+    }
+    .flyout_nav .brand > *{
+        display:none;
+    }
+
+    .flyout_nav .brand a{
+        background: url("../image/logo/zooplus_logo_flyoutNavigation_trimmed.png")  0 0 no-repeat transparent;
+        display:block;
+        height: 56px;
+        width: 196px;
+    }
+
+    /*
+        Header Service Area
+    */
+    .flyout_nav .headerlinks, .flyout_nav .tools{
+        display:block; /*clearing floats inside*/
+        overflow:hidden;
+        width: 774px;
+        text-align:left;
+        padding-top: 4px;
+    }
+
+    .flyout_nav .tools{
+        padding: 15px 0;
+    }
+
+    .flyout_nav .tools > *{
+        float:left;
+    }
+
+    /*
+        Service Links
+    */
+    .flyout_nav .headerlinks{
+        width: 100%;
+    }
+    .flyout_nav .headerlinks li{
+        display:block;
+        float:left;
+        margin-left: 10px;
+    }
+
+    .flyout_nav .headerlinks li:first-child{
+        margin-left:0;
+    }
+
+    .flyout_nav .headerlinks li + li:before {
+        content:"|";
+        margin-right:10px;
+        color:#3c9700
+    }
+
+    .flyout_nav .headerlinks .pull-right li + li:before {
+        content:"";
+        margin-right:0;
+    }
+
+    .flyout_nav .headerlinks .pull-right li:after {
+        content:"|";
+        margin-left:10px;
+        color:#3c9700
+    }
+
+    .flyout_nav .headerlinks .pull-right li:last-of-type:after {
+        content:"";
+        margin-left:0;
+    }
+
+    .headerlinks .myzooplus{
+        font-weight:bold;
+    }
+
+    /*
+        SEARCH - Tools
+    */
+    .flyout_nav #headerSearch{
+        width:350px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .flyout_nav .form-search > input{
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: -4px;
+        width:235px;
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
+
+    /*Zone Spacing*/
+    .flyout_nav .form-search{
+        margin-right: 15px;
+    }
+
+    .flyout_nav .form-search > button[type='submit']{
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        float: none;
+        min-width:80px;
+    }
+
+    /*
+        MiniCart
+    */
+
+    /*
+        Minicart has a 2-3 Portion Layout containg
+         1) Cart Icon
+         2) 1-2 Lines of Shopping Cart Text
+         3) (opt.) the article count
+
+        3)'s visibility depends on .js-count_visible on the parent <a>
+    */
+
+    .flyout_nav .tools .miniCart, .flyout_nav .tools .adzone_minicart{
+        position:relative;
+        float:right;
+        width: 175px;
+        height: 31px;
+        margin-right: 0px;
+
+        text-align: right;
+    }
+
+    /*hover states for minicart elements*/
+    .flyout_nav .tools .miniCart > a:hover, .flyout_nav .tools .miniCart > a:focus{
+        padding: 1px 3px 0 0;
+    }
+    .flyout_nav .miniCart > a:hover .articleCount, .flyout_nav .miniCart > a:focus .articleCount{
+        top:1px;
+    }
+    .flyout_nav .tools .js-count_visible > a:hover, .flyout_nav .tools .js-count_visible > a:focus{
+        padding-right: 30px;
+    }
+
+    /*
+        2) Cart Text
+    */
+    .flyout_nav .cart-label {
+        height: inherit;
+        line-height: 14px;
+    }
+
+    /*
+        Display the 3) col for articleCount affects the global spacing on the 2-3 portion layout
+    */
+    .flyout_nav .miniCart *{
+        font-size: 12px;
+    }
+    .flyout_nav .miniCart > a{
+        width: 152px;
+        height: 28px;
+        *height:31px;
+
+        padding: 0 3px 1px 0;
+        overflow: hidden;
+    }
+        .flyout_nav .articleCount {
+            display:none;
+            float:right;
+            line-height: 29px;
+            position: absolute;
+            top: 0;
+            right: 2px;
+
+            width: 30px;
+        }
+    .flyout_nav .js-count_visible > a{
+        padding-right: 30px;
+        width: 125px;
+    }
+        .flyout_nav .js-count_visible .articleCount {
+            display:inline-block;
+        }
+
+    .flyout_nav .articleCount:before {
+        content: "(";
+    }
+
+    .flyout_nav .articleCount:after {
+        content: ")";
+    }
+
+
+    a#checkoutBtnCart:before{
+        display: none;
+    }
+
+    /*
+        Header Advantage Area - ADZONES
+    */
+    .flyout_nav .flyout_nav .adzone_advantages, .flyout_nav .flyout_nav .adzone_minicart{
+        height: 30px;
+        overflow:hidden;
+        display:block;
+        position:relative;
+    }
+    .flyout_nav .adzone_advantages{
+        float: right;
+        width: 249px;
+    }
+
+    /* avoid any kind of new line - layout*/
+    .flyout_nav .adzone_advantages .zone{
+        white-space: nowrap;
+        display: table;
+    }
+
+    .flyout_nav .adzone_minicart{
+        width:175px;
+    }
+
+    .flyout_nav .zone .claim-delivery, .flyout_nav .zone .claim-phone, .flyout_nav .zone .claim-security, .flyout_nav .zone .claim-24h{
+        display: inline-block;
+        height: 30px;
+        margin: 0;
+        font-size: 11px;
+        color: #555;
+        font-family: arial, sans-serif;
+    }
+
+    .flyout_nav .zone .claim-delivery{
+        background: url("../image/icons/delivery_van.png") no-repeat 0 0 transparent;
+        padding-left: 43px;
+        width: 65px;
+        float: left;
+        margin-right: 6px;
+    }
+
+    .flyout_nav .zone .claim-phone{
+        background: url("../image/icons/phone.png") no-repeat 0 0 transparent;
+        padding-left: 30px;
+        float: right;
+        width: 99px;
+        overflow: hidden;
+    }
+
+    .flyout_nav .zone .claim-24h{
+        background: url("../image/icons/icon_24h.png") no-repeat 0 0 transparent;
+        padding-left: 31px;
+        float: right;
+        width: 104px;
+        overflow: hidden;
+    }
+
+    .flyout_nav .zone .claim-security{
+        background: url("../image/icons/security_sign.png") no-repeat 0 0 transparent;
+        padding-left: 30px;
+        float: left;
+        width: 125px;
+        text-align: left;
+        margin-left: 30px;
+    }
+
+/*
+Categorie Tab in Navigationbar showing Top-Level Categorie entries & special Offers
+- The Extra div.title wrapper is used to allow consistent design and interaction in A-grade Browsers as well as IE7/8 - it can be omitted from ie9 and up
+
+.active     - a page from the active top level category is shown
+:hover      - hover highlighting
+:focus      - user set focus to this tab (similar to hover)
+
+Markup:
+<div class="nav-tab {$modifiers}">
+    <div class="title">
+        <h4><a href="#">Example Category</a></h4>
+    </div>
+</div>
+
+Styleguide 3.1.1
+*/
+
+    #topNavigation .nav-tab,
+    #topNavigation .separator{
+        display:block;
+        position:relative;
+        float:left;
+        height: 34px;
+
+        z-index: 5;
+    }
+
+    /* the separator element DATA URI used to avoid request */
+    #topNavigation .separator{
+        width:1px;
+        background-image: url(data:image/gif;base64,R0lGODlhAQAcALMAAFaiA0acA264IGazG16uFkadBk2hCXW9JlOmDk2fBVWiA1ChBEmeBEGaAjyXAAAAACH5BAAAAAAALAAAAAABABwAAAQQ8IhBEDKluc17C0ySLIsCRAA7);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        border:none;
+        margin-right: -1px;
+    }
+
+    #topNavigation .nav-element:hover .nav-tab,
+    #topNavigation .nav-element:focus .nav-tab,
+    .nav-tab.flyout_active{
+        margin-top: -4px;
+        padding-bottom: 4px;
+    }
+
+    .nav-tab.active .separator,
+    #topNavigation .nav-element:hover .separator,
+    #topNavigation .nav-element:focus .separator,
+    .nav-tab.flyout_active .separator{
+        visibility:hidden !important;
+    }
+
+
+    /* restrict title to max width (allows cutting of + ellipsis)*/
+    .nav-tab.active .title,
+    #topNavigation .nav-element:hover .title,
+    #topNavigation .nav-element:focus .title,
+    .nav-tab.flyout_active .title{
+        overflow: hidden;
+    }
+
+    /*
+        first and last nav tab item receive a rounded edge on active state
+    */
+    .nav-tab.first.active .title{
+        -webkit-border-radius: 6px 0 0 6px;
+        -moz-border-radius: 6px 0 0 6px;
+        border-radius: 6px 0 0 6px;
+    }
+    .nav-tab.last.active .title{
+        -webkit-border-radius: 0 6px 6px 0;
+        -moz-border-radius: 0 6px 6px 0;
+        border-radius: 0 6px 6px 0;
+    }
+
+    /*
+        User hovering over a tab (corners & shadow)
+        - remove bottom roundings
+        - specific handling of last & first element in the Nav-Bar
+    */
+    #topNavigation .nav-element:hover .title,
+    #topNavigation .nav-element:focus .title,
+    .nav-tab.flyout_active .title,
+    #topNavigation .nav-element:hover .nav-tab.last.active .title,
+    .nav-tab.last.active.flyout_active .title,
+    #topNavigation .nav-element:hover .nav-tab.first.active .title,
+    .nav-tab.first.active.flyout_active .title{
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+        border-radius: 6px 6px 0 0;
+
+        -moz-box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.4);
+        box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.4);
+
+        filter: progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=120, Strength=2);
+    }
+
+    #topNavigation .nav-element:hover .nav-tab.first + .flyout,
+    #topNavigation .nav-element:focus .nav-tab.first + .flyout{
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    #topNavigation .nav-element:hover .nav-tab.last + .flyout,
+    #topNavigation .nav-element:focus .nav-tab.last + .flyout{
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+    }
+
+/* TAB - Width depends on total tab count:
+   - &lt; 9 Tabs - .topBrand accuulates left over pixels
+   - 9 Tabs apply class=".nav-9-tabs"
+*/
+    .nav-tab.theme_brands .title h2{
+        width: 130px;
+    }
+
+    /* for 9 category tab layout use different tab width*/
+    .nav-9-tabs > .nav-tab > .title > h2{
+        width: 111.5px;
+        *width: 111px;/*IE Fix*/
+    }
+    .nav-tab .title h2{
+        display:inline-block;
+        overflow:hidden;
+        width: 125px;
+        *width: 124px;/*IE Fix*/
+
+        margin-bottom: 0;
+
+        color:white;
+        font-size:14px;
+        line-height: 34px;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        text-align:center;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-tab.active .title h2,
+    #topNavigation .nav-element:hover .nav-tab.active .title h2,
+    #topNavigation .nav-element:focus .nav-tab.active .title h2,
+    #topNavigation .nav-element:hover .title h2,
+    #topNavigation .nav-element:focus .title h2,
+    .nav-tab.flyout_active .title h2,
+    .nav-tab.active.flyout_active .title h2{
+        background-image: url("data:image/gif;base64,R0lGODlhAQAnANUAAP2LAP6bAP+eAP6WAP2HAP+fAP6OAP+IAP2KAP6cAP+jAP6RAP6XAP2MAP6SAP6aAP6YAP6PAP2IAP+kAP6dAP6UAP2NAP+gAP6ZAP6QAP2JAP6VAP+hAP+lAP+iAP6TAP2GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABACcAAAYjwE5novB4OJeCgJIIPDAQxmBT+Xwci0zEYGkAEBoJAUQGHYIAOw==");
+        background-position: 0 0;
+        background-color: #ff8800;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=120, Strength=2)";
+        padding: 2px 0;/**/
+    }
+
+    .nav-tab.active .title h2{
+        padding: 0;
+        border-bottom: 1px solid #d70;
+    }
+
+    #topNavigation .nav-element:hover .title h2,
+    #topNavigation .nav-element:focus .title h2,
+    .nav-tab.flyout_active .title h2{
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .nav-tab .title a{
+        color:white;
+        display:block;
+
+        /*point out long words*/
+        overflow: inherit;
+        text-overflow:inherit;
+    }
+
+/*
+Categorie Flyout (.nav-tab > .flyout)
+The Flyout contains Navigation Items, usually aggregated in Lists
+    - allow usage of Content Structuring e.g. .col3, .multicolumn
+    - Flyouts depend on their trigger Item in this case the .nav-tab parent
+
+.flyLeft    - flyout to the right
+.flyRight   - flyout to the left
+
+Markup:
+<div class="nav-tab">
+    <div class="title">
+        <h2><a href="#">Example Category</a></h2>
+    </div>
+
+    <div class="flyout ${modifiers} col3">
+    </div>
+</div>
+*/
+
+    #topNavigation .flyout{
+        display: none;
+        padding: 14px 40px 14px 14px;
+        position:absolute;
+        overflow: hidden;
+        border:1px solid #ccc;
+        left:0px;
+        top: 34px;
+
+        -moz-border-radius: 6px 6px 6px 6px;
+        -webkit-border-radius: 6px 6px 6px 6px;
+        border-radius: 6px 6px 6px 6px;
+
+        -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+        box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+        /*ie*/
+        filter:progid:DXImageTransform.Microsoft.Shadow(color='#999999', Direction=120, Strength=3);
+
+        background-color:white;
+    }
+
+    #topNavigation > .nav-element:hover .nav-tab + .flyout,
+    #topNavigation > .nav-element:focus .nav-tab + .flyout,
+    #topNavigation > .nav-tab.flyout_active + .flyout{
+        display:block;
+        overflow:hidden;
+        border-color: #f80;
+        top: 34px;
+    }
+
+    #topNavigation nav:hover + .separator,
+    #topNavigation nav:focus + .separator,
+    #topNavigation .nav-tab.flyout_active ~ .separator{
+        display:none;
+    }
+
+
+/*
+Overwrite Generic Styles
+*/
+
+/* Forms */
+/* match big button styling */
+.flyout_nav input, .flyout_nav input[type="text"]{
+    padding-right:4px;
+    padding-top:4px;
+    padding-bottom:4px;
+}
+
+/*
+    content Styles
+*/
+/* COLUMNS */
+.flyout .col{
+    position:relative;
+    display:block;
+    float:left;
+}
+
+/* some space between siblings does pay out :) */
+.nav-tab .col + .col{
+    margin-left: 1.5%;
+}
+/* number of col's inside a Navigation Container */
+.nav-tab + .col1{width:180px}
+.nav-tab + .col2{width:948px}
+.nav-tab + .col3{width: 948px;*width: 947px;/*IE Fix*/}
+.nav-9-tabs .col3{width: 948px;*width: 947px;}/*IE Fix*/
+.nav-tab + .col4{width:948px}
+
+.nav-tab + .col1 > .col{width:100%}
+.nav-tab + .col2 > .col{width:48.5%}
+.nav-tab + .col3 > .col{width: 31%;}
+.nav-tab + .col4 > .col{width:25%}
+
+.col4 .multicolumn{
+    -webkit-column-width: 225px;
+    -webkit-column-gap: 10px;
+    -moz-column-width: 225px;
+    -moz-column-gap: 10px;
+    -o-column-width: 225px;
+    -o-column-gap: 10px;
+    column-width: 225px;
+    column-gap:10px;
+    padding-left: 6px;
+
+    margin:0 auto;
+}
+
+.nav-9-tabs .col4 .multicolumn{
+    -webkit-column-width: 225px;
+    -moz-column-width: 225px;
+    -o-column-width: 225px;
+    column-width: 225px;
+}
+
+.nav-tab h3, .nav-tab h4, .nav-tab h5, .nav-tab h6,
+.flyout h3, .flyout h4, .flyout h5, .flyout h6{
+    line-height: 22px;
+    font-weight:bold;
+    margin-bottom: 2px;
+    margin-top: 0;
+}
+.flyout > h3{
+    font-size: 15.36px;
+}
+.pg_3{
+    font-size: 13px;
+    font-weight:bold;
+}
+
+.flyout_nav ul.pg_3 > li{
+    margin-bottom: 2px;
+}
+
+.flyout_nav li.more{
+    margin-top:20px;
+    font-weight:bold;
+}
+
+
+/* extra space to for Pet Images */
+.flyout_nav .col ul{
+    margin-bottom:20px;
+    padding-left: 6px;
+}
+
+/*limit max width of column header and elements*/
+.flyout_nav .col ul > li, .flyout_nav .col > h3, .flyout_nav .multicolumn>li{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    color: #3C9700;
+
+    line-height: 25px;
+}
+
+/* Fallback scenario no Column Layout */
+.col4 .multicolumn.no-csscolumns li{
+    float:left;
+    width:225px;
+    min-height:22px;
+    *height:22px;
+}
+.col4 .multicolumn.no-csscolumns li:not(:nth-child(4n)){
+    margin-right:10px;
+}
+
+.nav-9-tabs .col4 .multicolumn li{
+    width:225px
+}
+
+.flyout_nav .col ul li:hover, .flyout_nav .col ul li:focus{
+    color: #ff8800;
+}
+
+/*
+    Adoptions to the general Page Layout
+    - will be removed with feature Trigger
+*/
+    /* Hide Minicart on Checkout pages*/
+    .checkoutPage #headerMiniCart{
+        position:absolute;
+        left: -9999px;
+        top:-9999px;
+    }
+
+    #navigation .stepCounter{
+        /*set zindex for sibling of .flyout_nav to not overlay in checkout*/
+        position:relative;
+        z-index:4;
+    }
+
+    #popupContent {
+        top: 115px;
+    }
+
+    /* hiding the input field of the old google search */
+    #suggestion_form  {
+        display:none;
+    }
+
+/* @import "search/exoSearchStyles.css";
+    referencing all Exorbyte relevant Styles
+*/
+
+/* @import "search/ecsSuggest.css";
+ *** START */
+    .exsg_box {
+        background-color: white;
+        border: 1px solid #2D556E;
+        border-width: 3px 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        font-size: 10pt;
+        overflow: hidden;
+        padding: 0px;
+        z-index: 99999;
+    }
+
+    .exsg_results ul,.exsg_results ul li {
+        list-style: none none outside !important;
+        padding: 0;
+        margin: 0;
+    }
+
+    .exsg_item {
+        margin: 0;
+        cursor: default;
+        overflow: hidden;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .exsg_item .col1 {
+        width: 350px;
+        float: left;
+        max-width: 335px;
+        min-width: 335px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .exsg_item .col2 {
+        width: 50px;
+        float: left;
+        overflow: hidden;
+    }
+
+    .exsg_logo {
+        line-height: 13px;
+        overflow: hidden;
+        border-top: 1px solid gray;
+        margin: 0;
+        padding: 0 5px;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    /* Do not change the markup of the Exorbyte logo without prior consent
+     * from Exorbyte GmbH. */
+    .exo_logo {
+        background: url("../../image/logo/exlogo_tiny.png") no-repeat scroll right 2px
+        transparent;
+        color: #2D556E;
+        cursor: pointer;
+        font-family: Arial, Helvetica, Sans-Serif;
+        font-size: 7.5pt;
+        font-weight: bold;
+        height: 15px;
+        padding: 3px 78px 2px 0;
+        vertical-align: bottom;
+    }
+
+    .exsg_loading {
+        background-image: url('../../image/icons/indicator.gif') !important;
+        background-repeat: no-repeat !important;
+        background-position: right center !important;
+    }
+
+    .exsg_odd {
+        background-color: #eee;
+    }
+
+    .exsg_over {
+        background-color: #BFC9D0;
+    }
+
+    .exsg_cat {
+        font-weight: bold;
+    }
+
+    .exsg_tab {
+        padding-left: 16px;
+    }
+
+    .exsg_bold {
+        font-weight: bold;
+    }
+
+    .exsg_clear {
+        clear: both;
+    }
+/* "search/ecsSuggest.css";
+ *** END */
+
+/* @import "search/ecsSearch.css";
+ *** START */
+
+    #exo-mask {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 9000;
+        background-color: #000;
+        display: none;
+    }
+
+    #exo-modal-container #exo-close {
+        float: right;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    #exo-facet-sb h3 {
+        margin: 10px 0;
+    }
+
+    #exo-modal-container .exo-left-col,
+    #exo-modal-container #exo-facet-sb {
+        clear: both;
+        float: left;
+        min-height: 30px;
+        width: 220px;
+    }
+
+    #exo-modal-container .exo-right-col,
+    #exo-modal-container #exo-results {
+        float: right;
+        width: 660px;
+    }
+
+    #exo-modal-container a:link,
+    #exo-modal-container a:visited {
+        color: #01578C;
+        text-decoration: none;
+    }
+
+    #exo-modal-container a:hover {
+        text-decoration: underline;
+    }
+
+    #exo-modal-container {
+        background-color: #fff;
+        color: #484848;
+        display: none;
+        font-family: Arial, Helvetica, Sans-Serif;
+        font-size: 0.8em;
+        font-weight: normal;
+        padding: 20px;
+        position: absolute;
+        width: 900px;
+        z-index: 9999;
+    }
+
+    #exo-search-box {
+        border-style: none;
+        float: right;
+        height: 32px;
+        line-height: 12px;
+        margin-right: 401px;
+        text-align: center;
+        text-indent: 0;
+        vertical-align: bottom;
+        width: 250px;
+    }
+
+    #exo-search-box div {
+        height: 32px;
+    }
+
+    #exo-search-box input#exo-search2352341 {
+        border: 1px solid #3B3B3B;
+        border-right-width: 0;
+        float: left;
+        height: 21px;
+        padding: 4px;
+        width: 200px;
+    }
+
+    #exo-search-box label {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll -13px -20px transparent;
+        float: left;
+        height: 100%;
+        width: 40px;
+    }
+
+    #exo-search-box label>input {
+        cursor: pointer;
+        height: 100%;
+        opacity: 0;
+        width: 100%;
+    }
+
+    #exo-facets {
+        clear: both;
+        margin-top: 15px;
+    }
+
+    .exo-clear, .exo-facet-row>div.exo-clear {
+        float: none;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        width: 0;
+    }
+
+    .exo-facet-row {
+        max-height: 192px;
+        clear: both;
+    }
+
+    .exo-facet-border {
+        border: 1px solid #CCCCCC;
+        overflow-y: auto !important;
+        padding: 0 !important;
+    }
+
+    .exo-more {
+        margin-top: 5px;
+    }
+
+    .exo-facet-row>div.exo-facet-hdr {
+        float: none;
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+    .exo-facet-row>div.exo-facet-hdr>h3 {
+        width: 31%;
+        float: left;
+        margin: 0 5px;
+        overflow: hidden;
+    }
+
+    .exo-facet-row>div {
+        float: left;
+        margin: 10px 5px;
+        max-height: 150px;
+        overflow: hidden;
+        padding: 1px;
+        position: relative;
+        width: 31%;
+    }
+
+    .exo-multi-facet ul,
+    .exo-cats ul {
+        list-style: none outside none !important;
+        margin: 0;
+        margin-left: 4px !important;
+        padding: 0;
+    }
+
+    .exo-multi-facet ul li,
+    .exo-cats ul li {
+        margin: 0;
+        position: relative;
+    }
+
+    .exo-facet-row ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .exo-multi-facet div.exo-FName a {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll
+        -86px -33px transparent;
+        padding-left: 16px;
+    }
+
+    .exo-multi-facet li.exo-bold div.exo-FName a {
+        background-position: -86px -18px;
+    }
+
+    .exo-x.exo-x-gray {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll
+        -55px -33px transparent;
+    }
+
+    .exo-x a,
+    .exo-x a:hover {
+        padding: 0 5px; /* make click area */
+        text-decoration: none !important;
+    }
+
+    .exo-x {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll
+        -55px -18px transparent;
+        bottom: 2px;
+        height: 16px;
+        left: 0;
+        position: absolute;
+        width: 13px;
+    }
+
+    ul.exo-cats-list {
+        clear: both;
+        margin-left: 12px !important;
+        padding-left: 0;
+    }
+
+    .exo-FName {
+        float: left;
+        height: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .exo-li-height {
+        clear: both;
+        height: 16px;
+        line-height: 16px;
+        padding: 2px 0;
+    }
+
+    .exo-wide-cat {
+        max-width: 90%;
+    }
+
+    .exo-slim-cat {
+        max-width: 77%;
+    }
+
+    .exo-facet-border .exo-slim-cat {
+        max-width: 75%;
+    }
+
+    .exoFCount {
+        font-size: 0.75em;
+        color: #6E6E6E;
+    }
+
+    .exo-slider {
+        margin: 11px;
+    }
+
+    .exo-slider-hdr {
+        border: 0;
+        margin-bottom: 10px;
+        width: 79%;
+    }
+
+    .exo-center {
+        text-align: center;
+    }
+
+    .exo-bold a {
+        font-weight: bold !important;
+    }
+
+    .exo-bold {
+        font-weight: bold !important;
+    }
+
+    .exo-right {
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    div.exo-slider-count {
+        margin-left: 4px;
+        height: 16px;
+        padding: 2px 15px;
+        position: relative;
+    }
+
+    div.exo-range-graph {
+        margin: 0 8px 1px;
+        width: 70%;
+    }
+
+    .exo-slider-cont {
+        clear: both;
+        margin: 0 8px 10px;
+        width: 70%;
+    }
+
+    div.exo-slider input {
+        width: 40px;
+    }
+
+    #exo-header {
+        clear: both;
+        padding: 5px 0;
+    }
+
+    .exo-headerLine {
+        display: block;
+        clear: both;
+        height: 20px;
+        padding: 5px 0;
+    }
+
+    .exo-first {
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+    #exo-noResults {
+        padding-bottom: 10px;
+    }
+
+    .exo-result {
+        clear: both;
+        height: 95px;
+    }
+
+    .exo-result>div {
+        float: left;
+        height: 100%;
+    }
+
+    .exo-result .exo-img {
+        width: 25%;
+        border-right: 1px solid #CCCCCC;
+    }
+
+    .exo-list .exo-result {
+        border-bottom: 1px solid #CCCCCC;
+        margin-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .exo-grid .exo-result {
+        border: 1px solid #CCCCCC;
+        clear: none;
+        float: left;
+        height: 300px;
+        margin: 0 2.9% 2.9% 0;
+        width: 31%;
+    }
+
+    .exo-grid .exo-result>div {
+        float: none;
+        height: 90px;
+        width: 94%;
+        padding: 3%;
+    }
+
+    .exo-grid .exo-result .exo-img {
+        height: 188px;
+        border-right: none;
+    }
+
+    .exo-result .exo-img img {
+        border: 0 none;
+        display: inline;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .exo-result .exo-img>div {
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .exo-result .exo-desc {
+        padding-left: 10px;
+        width: 72%;
+    }
+
+    .exo-desc .exo-prodName {
+        font-size: 1.2em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .exo-grid .exo-desc .exo-prodName {
+        white-space: normal;
+        height: 57px;
+        margin-bottom: 3px;
+    }
+
+    .exo-result .exo-desc>div.exo-prodDesc {
+        margin: 5px 0;
+        height: 48px;
+        overflow: hidden;
+    }
+    /*
+    .exo-list .exo-prodName a,
+    .exo-FName a {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    */
+    .exo-desc .exo-prodPrice {
+        font-weight: bold;
+        float: right;
+    }
+
+    .exo-prodPrice > span:last-child {
+        padding-left: 3px;
+    }
+
+    .exo-grid .exo-desc .exo-prodPrice {
+        text-align: right;
+        float: none;
+    }
+
+    .exo-grid .exo-dlvTime {
+        float: right;
+    }
+
+    .exo-dlvTime, .exo-addToCart {
+        float: left;
+    }
+
+    #exo-brandClr, #exo-brandSel {
+        cursor: pointer;
+    }
+
+    #exo-result-list {
+        clear: both;
+        margin-top: 8px;
+    }
+
+    #exo-result-list.exo-list {
+        margin-bottom: 18px;
+    }
+
+    #exo-numRes {
+        float: left;
+        max-width: 30%;
+        min-width: 30%;
+        padding-top: 5px;
+        width: 28%;
+    }
+
+    .exo-list .exo-result-sep {
+        border-top: 1px solid #CCCCCC;
+        margin: 8px 0;
+    }
+
+    #exo-view {
+        float: left;
+        padding-top: 3px;
+    }
+
+    #exo-view span {
+        background-image: url("../../image/sprites/search-sprite.png");
+        background-repeat: no-repeat;
+        display: inline-block;
+        height: 18px;
+        margin: 0 4px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    #exo-gridView.exo-active {
+        background-position: -1px 0;
+        cursor: default;
+    }
+
+    #exo-gridView {
+        background-position: -22px 0;
+        cursor: pointer;
+    }
+
+    #exo-listView {
+        background-position: -65px 0;
+        cursor: pointer;
+    }
+
+    #exo-listView.exo-active {
+        background-position: -43px 0;
+        cursor: default;
+    }
+
+    #exo-numPerPage {
+        float: left;
+        padding-top: 5px;
+        width: 16%;
+    }
+
+    #exo-numPerPage span {
+        padding: 0 2px;
+    }
+
+    .exo-sorting {
+        float: right;
+    }
+
+    .exo-pager {
+        float: right;
+    }
+
+    .exo-actual-page {
+        font-weight: bold;
+    }
+
+    .exo-page-number {
+        padding: 0 2px;
+    }
+
+    /* Slider----------------------------------*/
+    .exo-slider .ui-widget {
+        font-family: Verdana,Arial,sans-serif; font-size: 0.7em;
+    }
+    .exo-slider .ui-widget-content {
+        border: 1px solid #aaaaaa;
+        background-color: #ffffff;
+        color: #222222;
+    }
+    .exo-slider .ui-widget-content a {
+        color: #222222;
+    }
+    .exo-slider .ui-widget-header {
+        border: 1px solid #aaaaaa;
+        background-color: #cccccc;
+        color: #222222;
+        font-weight: bold;
+    }
+    .exo-slider .ui-widget-header a {
+        color: #222222;
+    }
+
+    .exo-slider .ui-state-default,
+    .exo-slider .ui-widget-content .ui-state-default {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll -70px -35px transparent;
+        font-weight: normal;
+        color: #555555;
+    }
+    .exo-slider .ui-state-hover,
+    .exo-slider .ui-widget-content .ui-state-hover {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll -70px -20px transparent;
+        font-weight: normal;
+        color: #212121;
+    }
+
+    .exo-slider .ui-slider {
+        position: relative;
+        text-align: left;
+    }
+    .exo-slider .ui-slider .ui-slider-handle {
+        position: absolute;
+        height: 11px;
+        cursor: default;
+        width: 14px;
+        z-index: 2;
+    }
+    .exo-slider .ui-slider .ui-slider-range {
+        position: absolute;
+        z-index: 1;
+        font-size: .7em;
+        display: block;
+        border: 0;
+    }
+
+    .exo-slider .ui-slider-horizontal { height: .4em; }
+    .exo-slider .ui-slider-horizontal .ui-slider-handle { margin-left: -.6em; }
+    .exo-slider .ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+    .exo-slider .ui-slider-horizontal .ui-slider-range-min { left: 0; }
+    .exo-slider .ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+/* "search/ecsSearch.css";
+ *** END */
+
+/* "search/zooplus.css";
+ *** START */
+    /**
+     * Zooplus Theme
+     *
+     * Use the custom drop-down arrow rounded borders.
+     *
+     * Copyright (c) 2012 exorbyte GmbH. All rights reserved.
+     *
+     */
+
+    /* Zooplus search results. */
+
+    .exo-sorting > span:first-child {
+        display: inline-block;
+        float: left;
+        padding: 4px 2px 2px;
+    }
+
+    .exo-sorting > div {
+        float: right;
+        margin: 0 2px;
+    }
+
+    .exo-sorting select {
+        display: none;
+    }
+
+    .exo-grid span.overlay_specOffer {
+        left: auto;
+        margin-left: 28px;
+        margin-top: 160px;
+        top: auto;
+    }
+
+    /* Facets */
+    #search_facets {
+        font-size: 11px;
+        padding: 3px 0 5px 8px;
+    }
+
+    div.exo-summary > ul {
+        opacity: 0.5;
+    }
+
+    div.exo-summary li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 98%;
+    }
+
+    .exo-remove-all {
+        margin-top: 11px;
+        padding-right: 6px;
+        text-align: right;
+    }
+
+    /* Facet headers */
+    #search_facets > h3 {
+        color: #666666;
+        font-size: 13px;
+        margin-bottom: 5px;
+        padding-left: 22px;
+        text-indent: -22px;
+    }
+
+    h3.exo-collapsable {
+        cursor: pointer;
+    }
+
+    #search_facets > h3 > span:first-child {
+        display: inline-block;
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll -86px -27px transparent;
+        width: 22px;
+    }
+
+    #search_facets > h3.exo-fHidden > span:first-child {
+        background-position: -86px -14px;
+    }
+
+    #search_facets > div {
+        margin-bottom: 11px !important;
+        margin-left: 0 !important;
+        max-height: 281px;
+    }
+
+    #search_facets > div > ul {
+        margin-left: 0 !important;
+    }
+
+    /* Facet widget fixes. */
+    #search_facets .exo-slider {
+        margin: 0;
+    }
+    #search_facets .exo-cats,
+    #search_facets .exo-multi-facet {
+        border: 1px solid white;
+        border-radius: 6px;
+        margin-right: 2px;
+        position: relative; /* IE 7 fix */
+    }
+    #search_facets .exo-facet-border {
+        border: 1px solid #ccc;
+        margin-right: 6px;
+    }
+
+    #search_facets .exo-multi-facet div.exo-FName a {
+        background-position: -85px -58px;
+        display: inline-block; /* IE 7 fix */
+        overflow: hidden;
+        padding-left: 18px;
+        text-overflow: ellipsis;
+        width: 86%;
+    }
+    #search_facets .exo-multi-facet li.exo-bold div.exo-FName a {
+        background-position: -85px -43px;
+    }
+
+    #search_facets .exo-wide-cat.exo-bold > a {
+        background: url("../../image/sprites/search-sprite.png") no-repeat scroll -88px -1px transparent;
+        padding-left: 13px;
+    }
+
+    #search_facets .exo-range-graph {
+        display: none;
+    }
+    #search_facets .exo-slider-cont {
+        width: 80%;
+    }
+
+    #search_facets .exo-slider-count {
+        margin: 13px 0 0 12px;
+        padding: 0;
+        text-align: center;
+        width: 80%;
+    }
+
+    #search_facets .exo-slider-hdr {
+        margin-left: 8px;
+    }
+    #search_facets .exo-slider-hdr .exo-bold {
+        font-weight: normal !important;
+    }
+
+    #search_facets .exo-slider-count > span {
+        display: none;
+    }
+
+    #search_facets .exo-x.exo-x-gray {
+        background-position: -70px -38px;
+    }
+
+    #search_facets .exo-x {
+        background-position: -70px -23px;
+        display: inline-block;
+        position: relative;
+        left: -2px;
+    }
+    #search_facets .exo-slider .ui-slider-horizontal {
+        height: 0.5em;
+    }
+
+    #search_facets .exo-slider .ui-widget-header {
+        background-color: #666666;
+    }
+
+    #search_facets .exo-slider .ui-widget-content {
+        border-color: #666666;
+    }
+    #search_facets .exo-slider .ui-slider .ui-slider-handle {
+        height: 22px;
+        top: -8px;
+    }
+    #search_facets .exo-slider .ui-state-default,
+    #search_facets .exo-slider .ui-widget-content .ui-state-default {
+        background-position: 0 -30px;
+    }
+
+    #search_facets .exo-slider .ui-state-hover,
+    #search_facets .exo-slider .ui-widget-content .ui-state-hover {
+        background-position: -16px -30px;
+    }
+
+    #search_facets .exo-slider-count {
+        height: 14px;
+    }
+
+    #search_facets .exo-slider-count .exoFCount:before {
+        content: "(";
+    }
+
+    #search_facets .exo-slider-count .exoFCount:after {
+        content: ")";
+    }
+
+    .exo-FName img {
+        height: 14px;
+        vertical-align: top;
+    }
+    #exo-view {
+        padding-top: 1px !important;
+    }
+    .exo-sorting select {
+        width: auto;
+        padding: 0;
+    }
+    .exo-headerLine {
+        border-bottom: 1px solid #CCCCCC;
+    }
+    div.image > div {
+        padding-top: 13px;
+        text-align: center;
+    }
+    #exo-result-list.exo-list {
+        border-bottom: 1px solid #CCCCCC;
+    }
+
+    /* Grid view */
+    .exo-grid .exo-result {
+        border-radius: 6px;
+        height: 325px !important;
+    }
+
+    .exo-grid .exo-desc {
+        height: 115px !important;
+        padding-top: 3px !important;
+    }
+
+    .exo-grid .exo-desc .exo-prodName {
+        height: 35px !important;
+    }
+
+    .exo-desc {
+        text-align: center;
+    }
+
+    .exo-review {
+        height: 18px;
+    }
+
+    .exo-review a {
+        left: auto;
+        position: relative;
+        top: auto;
+    }
+
+    .exo-review a.feedback {
+        margin-left: 5px;
+        top: -4px;
+    }
+
+    .exo-grid .num-variants {
+        font-size: 13px;
+    }
+
+    .exo-grid .price {
+        margin-top: 4px;
+    }
+
+    .exo-grid .actual {
+        font-size: 15px;
+    }
+
+    .exo-grid .actual:first-child {
+        font-weight:bold;
+        padding-top: 13px;
+    }
+
+
+    /* Start Dropkick */
+    /* Container */
+    .exo-sorting .dk_container {
+        border: 1px solid #ccc;
+        padding: 3px 4px 3px 6px;
+    }
+    .dk_container:focus {
+        outline: 0;
+    }
+    .exo-sorting a {}
+
+    /* Toggle */
+    .exo-sorting .dk_toggle {
+        background-image: url('../../image/icons/arrow_dropdown.gif');
+        background-repeat: no-repeat;
+        background-position: 99px center;
+        height: 15px;
+        width: 115px !important;
+    }
+    .exo-sorting .dk_toggle:hover {}
+
+    /* Focus State */
+    .exo-sorting.dk_focus,
+    .exo-sorting:focus {}
+    .exo-sorting.dk_focus .dk_toggle {}
+
+    /* Open State */
+    .exo-sorting.dk_open {}
+    .exo-sorting.dk_open .dk_toggle {}
+
+    /* Options Menu */
+    .exo-sorting .dk_options {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 0 0 6px 6px;
+        margin-top: 7px;
+        right: -1px;
+        z-index: 20;
+    }
+    .exo-sorting .dk_options a {
+        padding: 2px 6px;
+    }
+    .exo-sorting .dk_options a:hover,
+    .exo-sorting .dk_option_current a {}
+
+    /* Inner options */
+    .exo-sorting .dk_options_inner {}
+    .exo-sorting .dk_options_inner > li:first-child {
+        margin-top: 4px;
+    }
+    .exo-sorting .dk_options_inner > li:last-child {
+        margin-bottom: 4px;
+    }
+
+    /* Set a width property here */
+    .exo-sorting .dk_options_inner,
+    .exo-sorting.dk_touch .dk_options {}
+
+    /******  End Theme ******/
+
+    /***** Critical to the continued enjoyment of working dropdowns ******/
+
+    .dk_container {
+        display: none;
+        float: right;
+        position: relative;
+    }
+    .dk_container a {
+        outline: 0;
+    }
+
+    .dk_toggle {
+        display: -moz-inline-stack;
+        display: inline-block;
+        *display: inline;
+        position: relative;
+        zoom: 1;
+    }
+
+    .dk_open {
+        position: relative;
+    }
+    .dk_open .dk_options {
+        display: block;
+    }
+    .dk_open .dk_label {
+        color: inherit;
+    }
+
+    .dk_options {
+        display: none;
+        margin-top: -1px;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+    .dk_options a,
+    .dk_options a:link,
+    .dk_options a:visited {
+        display: block;
+    }
+    .dk_options_inner {
+        overflow: auto;
+        position: relative;
+    }
+
+    .dk_touch .dk_options {
+        overflow: hidden;
+    }
+
+    .dk_touch .dk_options_inner {
+        max-height: none;
+        overflow: visible;
+    }
+
+    /*
+    .dk_fouc select {
+      position: relative;
+      top: -99999em;
+      visibility: hidden;
+    }
+    */
+
+    /***** End Critical to the continued enjoyment of working dropdowns ******/
+    /* End Dropkick */
+
+
+    /* Suggest */
+    .exsg_header {
+        font-weight: normal !important;
+        line-height: 1.5em !important;
+    }
+
+    .exsg_header a {
+        font-weight: bold !important;
+    }
+
+    .exsg_box {
+        border-radius: 0 0 6px 6px;
+
+        /* adapt the exorbyte suggest box to 6px round corner design */
+        margin-left:0;
+        margin-top: -5px;
+        box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    .exsg_item {
+        overflow: inherit !important;
+        margin: 6px 18px !important;
+    }
+
+    .exsg_item .col1 img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .exsg_box .exsg_item .col1 {
+        max-width: 235px;
+        min-width: 235px;
+        width: 235px;
+        padding-left: 0 !important;
+    }
+
+    .exsg_item .col2 {
+        width: 38px !important;
+    }
+
+    .exsg_item .exsg_bold {
+        color: #3c9700;
+    }
+
+    .exsg_item.exsg_cat {
+        border-top: 1px solid #ccc;
+        padding-top: 9px;
+    }
+
+    li[rel="0"] .exsg_item.exsg_cat {
+        border-top: 0 none;
+        padding-top: 0;
+    }
+/* "search/zooplus.css";
+ *** END *
+
+/* "search/sntemplate.css";
+ *** START */
+/* Additional SN styles */
+    .exsg_box {
+        background-color: #FFFFFF;
+        border: 1px solid #ccc;
+        color: #333333;
+        font-family: Arial,Verdana,Helvetica,sans-serif;
+        font-size: 10pt;
+    }
+
+    .exsg_footer {
+        display: none;
+    }
+
+    .exsg_item {
+        padding: 2px;
+    }
+
+    .exsg_item .col1 {
+        max-width: 315px;
+        min-width: 315px;
+        padding-left: 18px;
+        width: 315px;
+    }
+
+    .col1 .exoSuggName {
+        display: inline;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    .exsg_item .col2 {
+
+        float: right;
+        text-align: right;
+        width: 91px;
+    }
+
+    .exsg_cat .col1 {
+        padding-left: 2px;
+    }
+
+    .exsg_cat {
+        color: #333333;
+    }
+
+    .exsg_over {
+        background-color: #F0FCE1;
+    }
+
+    .exsg_catCtx {
+        opacity: 0.8;
+    }
+
+    .exsg_logo {
+        border-top: 1px solid #FFFFFF;
+    }
+
+    .exsg_header {
+        border-bottom: 1px solid #FFFFFF;
+        font-size: 0.9em;
+        font-weight: bold;
+        line-height: 2.5em;
+        margin: 8px 0 0 0;
+        overflow: hidden;
+        padding: 0 6px;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+/* "search/sntemplate.css";
+ *** END */
+
+
+/*************************
+ *  Generic Structures
+ *
+ *************************/
+
+/*
+@module Navigation / Buttons / Links
+Navigation
+Buttons an Links in Navigation Context
+
+.next      - Button or Link that handles forward navigation
+.back      - Button or Link that handles backward / cancel navigation
+
+Markup:
+<div class="navcontrol">
+    <button class="next">Button Forward (button.next)</button>
+    <button class="back">Button Back (button.back)</button>
+</div>
+<div class="navcontrol">
+    <a href="#" class="next">Link Forward (a.next)</button>
+    <a href="#" class="back">Link Back (a.back)</button>
+</div>
+
+Styleguide 4
+*/
+.navcontrol {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: none;
+    margin: 15px 0 30px;
+    height:30px;
+    overflow:visible;
+}
+.navcontrol .next  {
+    float: right;
+}
+
+
+#cart_popup .navcontrol{
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 6px 12px;
+    border-top: 1px solid #999;
+}
+
+
